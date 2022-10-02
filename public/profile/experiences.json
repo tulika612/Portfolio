@@ -1,0 +1,48 @@
+{
+    "experiences": [
+        {
+            "title": "Intern-Member of Technical Staff-Software Engineering",
+            "subtitle": "VMware Inc.",
+            "workType": "Internship",
+            "workDescription": [
+                "Analyzed Bitfusion performance for different ML benchmark usage scenarios, architecture, and AI frameworks",
+                "Automated MLPerf Inference benchmark on NVIDIA GPU and integrated it with existing CI/CD pipeline",
+                "Designed software to parse output for different benchmarks and compared their performance on wavefront"
+            ],
+            "dateText": "06/2022 – Present"
+        },
+        {
+            "title": "Software Engineer",
+            "subtitle": "Earthsense India",
+            "workType": "Full-time",
+            "workDescription": [
+                "Migrated existing system from AWS S3 to Microsoft Azure storage and integrated it with visual plot split code",
+                "Optimized supervised visual plot split code by removing outliers, which resulted in a 6.06% increase in accuracy",
+                "Trained deep neural model for calculating the width of crops to attain an R squared value of 0.752 on manual measurement data"
+            ],
+            "dateText": "05/2021 – 08/2021"
+        },
+        {
+            "title": "Research Intern",
+            "subtitle": "IIT Bombay",
+            "workType": "Internship",
+            "workDescription": [
+                "Developed an automated OCR system for Sanskrit language and deployed it to web interface using Django",
+                "Streamlined the complete end-end project pipeline from OCR of Sanskrit books to its digitization",
+                "Compared ARU-Net and tesseract for creating bounding boxes, with IoU values of 0.96 and 0.91 respectively",
+                "Explored models like BLSTM and AttentionLSTM, which achieved accuracy of 88.26% and 94.84% respectively, to obtain the best classifier for recognition"
+            ],
+            "dateText": "06/2020 – 03/2021"
+        },
+        {
+            "title": "Winter Intern",
+            "subtitle": "Indian Institute of Space Science and Technology ",
+            "workType": "Internship",
+            "workDescription": [
+                "Deployed an Automated Attendance System using facial recognition, and results were stored in the SQL database",
+                "Trained a deep neural model based on VGGFace resnet50 architecture to achieve a testing accuracy of 82.71%"
+            ],
+            "dateText": "12/2019 – 01/2020"
+        }
+    ]
+}

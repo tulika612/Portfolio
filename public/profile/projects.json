@@ -1,0 +1,122 @@
+{
+    "projects" : [
+        {
+            "image" : "images/projects/Screenshot1.png",
+            "title": "Source Code Stylometry",
+            "bodyText": "- Developed a full-stack web application to recognize author by their style of coding using Flask REST API \n- Published a reseach paper in the ICMLC 2021 Conference(ISBN: 978-1-4503-8931-0), February 2021",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": "https://github.com/tulika612/Code_Stylometry"
+                },
+                {
+                    "text": "Paper",
+                    "href": "https://dl.acm.org/doi/10.1145/3457682.3457709"
+                }
+            ],
+            "tags" : [
+                "Python",
+                "Flask",
+                "Keras"
+            ]
+        },
+        {
+            "image" : "images/projects/android.png",
+            "title": "ANNAM Food Ordering App",
+            "bodyText": "- A Food Ordering app made using **Android Studio** for **PICT** Students\n - Features: secure login, cart addition and deletion, payment gateway, review, and feedback\n - Advance features such as voice assistant,tab view and flipper images for better user experience",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": "https://github.com/tulika612/ANNAM_Food_Order_App"
+                },
+                {
+                    "text": "Link",
+                    "href": "https://photos.app.goo.gl/VUkBdVgPyocah5DK8"
+                }
+            ],
+            "tags" : [
+                "Android Studio",
+                "Java",
+                "XML",
+                "Google Firebase"
+            ]
+        },
+        {
+            "image" : "images/projects/Screenshot4.png",
+            "title": "InfoLens In-house Search Engine",
+            "bodyText": "- Web app to search queries across videos and text and implemented features like auto complete, auto correct and page ranking",
+            "links": [
+                {
+                    "text": "Demo",
+                    "href": "https://youtu.be/Gxq31t8Unyo"
+                }
+            ],
+            "tags" : [
+                "Python",
+                "flask",
+                "TFIDF",
+                "CMU Pocketsphinx",
+                "HTML/CSS"
+            ]
+        },
+        {
+            "image" : "images/projects/image12.png",
+            "title": "Meeting Room booking Web App",
+            "bodyText": "- Designed a personalized meeting room website for booking rooms using HTML/CSS, PHP and MySQL\n- Included dynamic features such as Registration, Login, Booking and Cancellation along with Error handling",
+            "links": [
+                {
+                    "text": "GitHub",
+                    "href": "https://github.com/tulika612/Meeting_room_booking_web_project"
+                }
+            ],
+            "tags" : [
+                "HTML",
+                "CSS",
+                "Javascript",
+                "AJAX",
+                "php"
+            ]
+        },
+        {
+            "image" : "images/projects/kin.png",
+            "title": "Kinship Detection using Deep Neural Network",
+            "bodyText": "- Performed comparative analysis of three different deep neural network architectures for kinship detection\n - Architectures used - a transfer learning model based on ResNet50, ResNet50 with improved concatenation, and a combination of the previous model with multiple dense layers",
+            "links": [
+                {
+                    "text": "Link",
+                    "href": "https://drive.google.com/file/d/1fU4XuF_1hZPu30ghw78AXkvXsL3ued8y/view?usp=sharing"
+                },
+                {
+                  "text": "Report",
+                  "href": "https://drive.google.com/file/d/15HNgrY-FXocSIaFGVDNn8uEOiyiX68JQ/view?usp=sharing"
+                }
+            ],
+            "tags" : [
+                "Python",
+                "Keras",
+                "Transfer learning"
+            ]
+        },
+        {
+            "image" : "images/projects/student.png",
+            "title": "Student Helper",
+            "bodyText": "- Deployed an web application for keystone and capstone projects using react and nodejs\n - Integrated platform where students can present ideas, form groups and create projects which can be tracked and graded by the professors and handed over seamlessly to other teams",
+            "links": [
+                {
+                    "text": "Demo",
+                    "href": "https://www.youtube.com/watch?v=mW1HkbGiEZw&t=61s"
+                },
+                {
+                  "text": "Presentation",
+                  "href": "https://docs.google.com/presentation/d/1-ZD16uvFZh5KpCtjWXZIea-R0IqrPARW8xOyR-IC6NI/edit?usp=sharing"
+                }
+            ],
+            "tags" : [
+                "HTML/CSS",
+                "NodeJS",
+                "React",
+                "MySQL"
+            ]
+        }
+    ]
+}

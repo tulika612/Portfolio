@@ -1,0 +1,16 @@
+{
+    "social": [
+        {
+            "network" : "linkedin",
+            "href": "https://www.linkedin.com/in/tulika-awalgaonkar/"
+        },
+        {
+            "network" : "github",
+            "href": "https://github.com/tulika612"
+        },
+        {
+            "network" : "email",
+            "href": "mailto:tawalgao@uci.edu"
+        }
+    ]
+}
