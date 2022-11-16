@@ -62,7 +62,7 @@
         {
             "image" : "images/projects/sanskrit.png",
             "title": "OCR for sanskrit language",
-            "bodyText": "- Developed an automated OCR system for Sanskrit language and deployed it to web interface using Django\n - Compared ARU-Net and tesseract for creating bounding boxes, with IoU values of 0.96 and 0.91 respectively \nExplored models like BLSTM and AttentionLSTM, which achieved accuracy of 88.26% and 94.84% respectively,",
+            "bodyText": "- Developed an automated OCR system for Sanskrit language and deployed it to web interface using Django\n - Compared ARU-Net and tesseract for creating bounding boxes, with IoU values of 0.96 and 0.91 respectively \n - Explored models like BLSTM and AttentionLSTM, which achieved accuracy of 88.26% and 94.84% respectively,",
             "links": [
                 {
                     "text": "Github",
