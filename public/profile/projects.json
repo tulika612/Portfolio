@@ -60,6 +60,22 @@
             ]
         },
         {
+            "image" : "images/projects/sanskrit.png",
+            "title": "OCR for sanskrit language",
+            "bodyText": "- Developed an automated OCR system for Sanskrit language and deployed it to web interface using Django\n - Compared ARU-Net and tesseract for creating bounding boxes, with IoU values of 0.96 and 0.91 respectively \nExplored models like BLSTM and AttentionLSTM, which achieved accuracy of 88.26% and 94.84% respectively,",
+            "links": [
+                {
+                    "text": "Github",
+                    "href": "https://github.com/tulika612/Sanskrit-OCR"
+                }
+            ],
+            "tags" : [
+                "Python",
+                "Django",
+                "Tensorflow"
+            ]
+        },
+        {
             "image" : "images/projects/image12.png",
             "title": "Meeting Room booking Web App",
             "bodyText": "- Designed a personalized meeting room website for booking rooms using HTML/CSS, PHP and MySQL\n- Included dynamic features such as Registration, Login, Booking and Cancellation along with Error handling",
