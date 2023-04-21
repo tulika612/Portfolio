@@ -1,15 +1,26 @@
 {
     "experiences": [
         {
+            "title": "Founding Software Engineer",
+            "subtitle": "Stealth Startup",
+            "workType": "Full-time",
+            "workDescription": [
+                "Added Caching using LRU eviction technique to the existing system to improve application's overall performance",
+                "Moved existing system to serverless using Azure functions and automated the process using terraform on github actions",
+                "Orchestrating a Machine learning pipeline for fine-tuning existing models using slurm to optimize resource usage"
+            ],
+            "dateText": "02/2023 – Present"
+        },
+        {
             "title": "Intern-Member of Technical Staff-Software Engineering",
             "subtitle": "VMware Inc.",
-            "workType": "Internship",
+            "workType": "Full-time",
             "workDescription": [
                 "Analyzed Bitfusion performance for different ML benchmark usage scenarios, architecture, and AI frameworks",
                 "Automated MLPerf Inference benchmark on NVIDIA GPU and integrated it with existing CI/CD pipeline",
                 "Designed software to parse output for different benchmarks and compared their performance on wavefront"
             ],
-            "dateText": "06/2022 – Present"
+            "dateText": "06/2022 – 09/2022"
         },
         {
             "title": "Software Engineer",
