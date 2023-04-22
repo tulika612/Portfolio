@@ -5,12 +5,18 @@
           "cardTitle": "Masters, Computer Science",
           "cardSubtitle":"University of California",
           "cardDetailedText": "GPA - 3.81/4.00",
+          "icon" : {
+            "src": "images/logo.png"
+        }
       },
         {
             "title": "Aug 2016 - May 2020",
             "cardTitle": "Bachelors, Computer Science",
             "cardSubtitle":"University of Pune",
             "cardDetailedText": "CGPA - 9.37/10.00",
+            "icon" : {
+                "src": "images/logo.png"
+            }
         }
     ]
 }
