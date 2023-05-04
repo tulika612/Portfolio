@@ -1,8 +1,8 @@
 {
     "experiences": [
         {
-            "title": "Founding Software Engineer",
-            "subtitle": "Stealth Startup",
+            "title": "Founding Engineer",
+            "subtitle": "Lamini AI",
             "workType": "Full-time",
             "workDescription": [
                 "Added Caching using LRU eviction technique to the existing system to improve application's overall performance",
