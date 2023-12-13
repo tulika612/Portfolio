@@ -47,9 +47,14 @@
                     "icon": "images/skills/docker.png",
                     "title": "Docker"
                 },
+                ,
                 {
-                    "icon": "images/skills/docker.png",
-                    "title": "Eclipse"
+                    "icon": "images/skills/terraform.png",
+                    "title": "Terraform"
+                },
+                {
+                    "icon": "images/skills/slurm.png",
+                    "title": "Slurm"
                 },
                 {
                     "icon": "images/skills/django.png",
