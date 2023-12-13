@@ -47,7 +47,6 @@
                     "icon": "images/skills/docker.png",
                     "title": "Docker"
                 },
-                ,
                 {
                     "icon": "images/skills/terraform.png",
                     "title": "Terraform"
