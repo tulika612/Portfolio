@@ -1,5 +1,5 @@
 {
     "about": "A bit about myself: \n\nMy name is Tulika Awalgaonkar and I graduated from UCI with a Master's in Computer Science. I am interested in discovering and proposing the fundamental principles, algorithms, and implementations for solving software development-related problems. Over the past years, I have worked on several projects in the Android, Web, and machine learning domains. I worked as a Software Engineering Intern at VMware in their vSphere Bitfusion team. I was working on analyzing Bitfusion performance for different ML benchmark usage scenarios, architecture, and AI frameworks. I worked as a founding engineer at Lamini, which is working on building specialized LLMs for enterprises. I worked on moving their current system to serverless using Azure functions and building fine-tuning pipelines using Slurm. I have also worked on the optimization of training and inference of LLM models using techniques like LORA, Deepspeed, and Accelerate. Currently, I am working as a Machine Learning Engineer at Salesforce.",
-    "imageSource": "images/about/grad.jpg"
+    "imageSource": "images/about/pro.png"
 
 }
