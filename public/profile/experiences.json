@@ -1,6 +1,16 @@
 {
     "experiences": [
         {
+            "title": "Machine Learning Engineer",
+            "subtitle": "Salesforce",
+            "workType": "Full-time",
+            "workDescription": [
+                "Quantized models for running on mobile hardware to 16, 8 and 4 bits",
+                "Benchmarked different LLMs and LMMs on actual phone devices to record latency and utilization metrics"
+            ],
+            "dateText": "01/2024 – Present"
+        },
+        {
             "title": "Founding Engineer",
             "subtitle": "Lamini AI",
             "workType": "Full-time",
@@ -10,10 +20,10 @@
                 "Integrated Multi-GPU inference using deepspeed, allowing running inference on bigger models, i.e. 13b->70b parameters",
                 "Orchestrated a Machine learning pipeline for fine-tuning LLM models using Slurm to optimize GPU usage"
             ],
-            "dateText": "02/2023 – Present"
+            "dateText": "02/2023 – 12/2023"
         },
         {
-            "title": "Intern-Member of Technical Staff-Software Engineering",
+            "title": "Intern-Member of Technical Staff",
             "subtitle": "VMware Inc.",
             "workType": "Full-time",
             "workDescription": [
