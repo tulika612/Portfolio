@@ -5,8 +5,10 @@
             "subtitle": "Salesforce",
             "workType": "Full-time",
             "workDescription": [
-                "Quantized models for running on mobile hardware to 16, 8 and 4 bits",
-                "Benchmarked different LLMs and LMMs on actual phone devices to record latency and utilization metrics"
+                "Developed MobileAIBench, an open-source benchmarking framework to assess the performance of LLMs and LMMs optimized for on-device use, leveraging llama.cpp's quantization technique (4-bit, 8-bit, and 16-bit) ",
+                "Created iOS and Android applications to benchmark the performance of LLMs and LMMs running directly on mobile hardware, evaluating latency, hardware utilization, and resource consumption metrics",
+                "Quantized and deployed internal multimodal xGen-MM on iphone device, enabling efficient on-device processing",
+                "Preprocessed agentic data from AgentBank and ToolACE datasets, integrating and refining features for fine-tuning Llama3-8b model"
             ],
             "dateText": "01/2024 – Present"
         },
@@ -43,18 +45,6 @@
                 "Trained deep neural model for calculating the width of crops to attain an R squared value of 0.752 on manual measurement data"
             ],
             "dateText": "05/2021 – 08/2021"
-        },
-        {
-            "title": "Research Intern",
-            "subtitle": "IIT Bombay",
-            "workType": "Internship",
-            "workDescription": [
-                "Developed an automated OCR system for Sanskrit language and deployed it to web interface using Django",
-                "Streamlined the complete end-end project pipeline from OCR of Sanskrit books to its digitization",
-                "Compared ARU-Net and tesseract for creating bounding boxes, with IoU values of 0.96 and 0.91 respectively",
-                "Explored models like BLSTM and AttentionLSTM, which achieved accuracy of 88.26% and 94.84% respectively, to obtain the best classifier for recognition"
-            ],
-            "dateText": "06/2020 – 03/2021"
         },
         {
             "title": "Winter Intern",
