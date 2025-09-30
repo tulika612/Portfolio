@@ -36,10 +36,6 @@
             "title" : "Tools & Platforms",
             "items": [
                 {
-                    "icon": "images/skills/android-studio.png",
-                    "title": "Android Studio"
-                },
-                {
                     "icon": "images/skills/git.png",
                     "title": "Git"
                 },
@@ -54,6 +50,14 @@
                 {
                     "icon": "images/skills/slurm.png",
                     "title": "Slurm"
+                },
+                {
+                    "icon": "images/skills/android-studio.png",
+                    "title": "Android Studio"
+                },
+                {
+                    "icon": "images/skills/Xcode_icon.png",
+                    "title": "Xcode"
                 },
                 {
                     "icon": "images/skills/django.png",

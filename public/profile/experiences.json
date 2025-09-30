@@ -5,10 +5,10 @@
             "subtitle": "Salesforce",
             "workType": "Full-time",
             "workDescription": [
-                "Developed MobileAIBench, an open-source benchmarking framework to assess the performance of LLMs and LMMs optimized for on-device use, leveraging llama.cpp's quantization technique (4-bit, 8-bit, and 16-bit) ",
-                "Created iOS and Android applications to benchmark the performance of LLMs and LMMs running directly on mobile hardware, evaluating latency, hardware utilization, and resource consumption metrics",
-                "Quantized and deployed internal multimodal xGen-MM on iphone device, enabling efficient on-device processing",
-                "Preprocessed agentic data from AgentBank and ToolACE datasets, integrating and refining features for fine-tuning Llama3-8b model"
+                "Developed xLAMFlow in Swift, an iOS productivity assistant powered by quantized xLAM-2, supporting single-step, multi-turn, and multi-step agentic scenarios demonstrating on-device AI, privacy-preserving inference and end-to-end user experience integration.",
+                "Advanced model training pipelines by preprocessing datasets (AgentBank, ToolACE, BFCL) and fine-tuning Qwen-1B/3B/8B and Llama3-8B, released as xLAM-2, then quantized to GGUF format for edge deployment. ",
+                "Designed and open-sourced MobileAIBench, a cross-platform iOS/Android benchmarking framework to evaluate on-device LLM/LMM performance, leveraging llama.cpp quantization (4-bit, 8-bit, 16-bit) for efficiency. ",
+                "Optimized multimodal inference by quantizing and deploying internal xGen-MM models on-device, enabling low-latency multimodal reasoning directly on mobile hardware. "
             ],
             "dateText": "01/2024 – Present"
         },
@@ -17,7 +17,7 @@
             "subtitle": "Lamini AI",
             "workType": "Full-time",
             "workDescription": [
-                "Moved existing system to serverless using Azure functions and automated the process using Terraform on GitHub actions,extending support for up to 10,000 users",
+                "Moved existing system to serverless using Azure functions and automated the process using Terraform on GitHub actions, extending support for up to 10,000 users",
                 "Enabled training and inference of LLM with LORA peft optimization which resulted in 10 times faster switch time",
                 "Integrated Multi-GPU inference using deepspeed, allowing running inference on bigger models, i.e. 13b->70b parameters",
                 "Orchestrated a Machine learning pipeline for fine-tuning LLM models using Slurm to optimize GPU usage"
