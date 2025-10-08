@@ -11,6 +11,10 @@
         {
             "network" : "email",
             "href": "mailto:tawalgao@uci.edu"
+        },
+        {
+            "network" : "googlescholar",
+            "href": "https://scholar.google.com/citations?user=9C_VGIUAAAAJ&hl=en"
         }
     ]
 }

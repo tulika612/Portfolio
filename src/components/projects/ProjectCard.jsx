@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  Button, Card, Badge, Col,
+  Button, Card, Badge,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -10,26 +10,51 @@ const styles = {
   badgeStyle: {
     paddingLeft: 10,
     paddingRight: 10,
-    paddingTop: 5,
-    paddingBottom: 5,
-    margin: 5,
+    paddingTop: 4,
+    paddingBottom: 4,
+    margin: 3,
+    fontSize: '0.8rem',
+    fontWeight: '400',
   },
   cardStyle: {
-    borderRadius: 10,
+    borderRadius: 8,
+    border: '1px solid #e0e0e0',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    transition: 'box-shadow 0.2s ease',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   },
   cardTitleStyle: {
-    fontSize: 24,
-    fontWeight: 700,
+    fontSize: '1.25rem',
+    fontWeight: '600',
+    marginBottom: '0.75rem',
+    lineHeight: '1.3',
   },
   cardTextStyle: {
     textAlign: 'left',
-  },
-  linkStyle: {
-    textDecoration: 'none',
-    padding: 10,
+    fontSize: '0.95rem',
+    lineHeight: '1.5',
+    color: 'inherit',
+    flexGrow: 1,
   },
   buttonStyle: {
-    margin: 5,
+    margin: 3,
+    borderRadius: 4,
+    fontWeight: '400',
+    padding: '0.5rem 1rem',
+    fontSize: '0.9rem',
+    transition: 'opacity 0.2s ease',
+  },
+  cardImageStyle: {
+    borderRadius: '8px 8px 0 0',
+    height: '180px',
+    objectFit: 'cover',
+  },
+  cardFooterStyle: {
+    borderTop: '1px solid #e0e0e0',
+    borderRadius: '0 0 8px 8px',
+    padding: '0.75rem',
   },
 };
 
@@ -40,52 +65,62 @@ const ProjectCard = (props) => {
   const { project } = props;
 
   return (
-    <Col>
-      <Card
-        style={{
-          ...styles.cardStyle,
-          backgroundColor: theme.cardBackground,
-          borderColor: theme.cardBorderColor,
-        }}
-        text={theme.bsSecondaryVariant}
-      >
-        <Card.Img variant="top" src={project?.image} />
-        <Card.Body>
-          <Card.Title style={styles.cardTitleStyle}>{project.title}</Card.Title>
-          <Card.Text style={styles.cardTextStyle}>
-            {parseBodyText(project.bodyText)}
-          </Card.Text>
-        </Card.Body>
+    <Card
+      style={{
+        ...styles.cardStyle,
+        backgroundColor: theme.cardBackground,
+        borderColor: theme.cardBorderColor,
+      }}
+      text={theme.bsSecondaryVariant}
+      className="project-card"
+    >
+      <Card.Img
+        variant="top"
+        src={project?.image}
+        style={styles.cardImageStyle}
+      />
+      <Card.Body style={{ padding: '1.5rem', flexGrow: 1 }}>
+        <Card.Title style={styles.cardTitleStyle}>{project.title}</Card.Title>
+        <Card.Text style={styles.cardTextStyle}>
+          {parseBodyText(project.bodyText)}
+        </Card.Text>
+      </Card.Body>
 
-        <Card.Body>
-          {project?.links?.map((link) => (
-            <Button
-              key={link.href}
-              style={styles.buttonStyle}
-              variant={'outline-' + theme.bsSecondaryVariant}
-              onClick={() => window.open(link.href, '_blank')}
+      <Card.Body style={{ padding: '0 1.5rem 1rem 1.5rem' }}>
+        {project?.links?.map((link) => (
+          <Button
+            key={link.href}
+            style={styles.buttonStyle}
+            variant={'outline-' + theme.bsSecondaryVariant}
+            onClick={() => window.open(link.href, '_blank')}
+            className="project-button"
+          >
+            {link.text}
+          </Button>
+        ))}
+      </Card.Body>
+      {project.tags && (
+        <Card.Footer
+          style={{
+            ...styles.cardFooterStyle,
+            backgroundColor: theme.cardFooterBackground,
+            borderTopColor: theme.cardBorderColor,
+          }}
+        >
+          {project.tags.map((tag) => (
+            <Badge
+              key={tag}
+              pill
+              bg={theme.bsSecondaryVariant}
+              text={theme.bsPrimaryVariant}
+              style={styles.badgeStyle}
             >
-              {link.text}
-            </Button>
+              {tag}
+            </Badge>
           ))}
-        </Card.Body>
-        {project.tags && (
-          <Card.Footer style={{ backgroundColor: theme.cardFooterBackground }}>
-            {project.tags.map((tag) => (
-              <Badge
-                key={tag}
-                pill
-                bg={theme.bsSecondaryVariant}
-                text={theme.bsPrimaryVariant}
-                style={styles.badgeStyle}
-              >
-                {tag}
-              </Badge>
-            ))}
-          </Card.Footer>
-        )}
-      </Card>
-    </Col>
+        </Card.Footer>
+      )}
+    </Card>
   );
 };
 

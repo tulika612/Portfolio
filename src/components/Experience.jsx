@@ -1,16 +1,49 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Timeline, TimelineItem } from 'vertical-timeline-component-for-react';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
-import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import Fade from 'react-reveal';
-import Header from './Header';
+import { motion } from 'framer-motion';
 import endpoints from '../constants/endpoints';
 import FallbackSpinner from './FallbackSpinner';
-import '../css/experience.css';
 
 const styles = {
+  experienceContainer: {
+    padding: '4rem 2rem',
+    maxWidth: '1000px',
+    margin: '0 auto',
+  },
+  titleStyle: {
+    fontSize: '2.5rem',
+    fontWeight: '600',
+    marginBottom: '3rem',
+    textAlign: 'center',
+  },
+  currentRoleHighlight: {
+    padding: '2rem',
+    borderRadius: '16px',
+    marginBottom: '3rem',
+    border: '2px solid',
+    textAlign: 'center',
+  },
+  currentRoleTitle: {
+    fontSize: '1.8rem',
+    fontWeight: '700',
+    marginBottom: '0.5rem',
+  },
+  currentRoleCompany: {
+    fontSize: '1.3rem',
+    fontWeight: '600',
+    marginBottom: '1rem',
+    opacity: 0.8,
+  },
+  currentRoleDescription: {
+    fontSize: '1.1rem',
+    lineHeight: '1.6',
+    maxWidth: '600px',
+    margin: '0 auto',
+  },
   ulStyle: {
     listStylePosition: 'outside',
     paddingLeft: 20,
@@ -30,9 +63,8 @@ const styles = {
   },
 };
 
-function Experience(props) {
+function Experience() {
   const theme = useContext(ThemeContext);
-  const { header } = props;
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -44,25 +76,55 @@ function Experience(props) {
       .catch((err) => err);
   }, []);
 
-  return (
-    <>
-      <Header title={header} />
+  const currentRole = data?.[0]; // Salesforce role
 
-      {data
-        ? (
-          <div className="section-content-container">
+  return (
+    <section id="experience" style={{ backgroundColor: theme.background, color: theme.color }}>
+      <div style={styles.experienceContainer}>
+        <h2 style={{ ...styles.titleStyle, color: theme.color }}>Experience</h2>
+        {data && currentRole ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div style={{
+              ...styles.currentRoleHighlight,
+              backgroundColor: theme.cardBackground,
+              borderColor: theme.accentColor,
+            }}
+            >
+              <h3 style={{ ...styles.currentRoleTitle, color: theme.accentColor }}>
+                {currentRole.title}
+              </h3>
+              <h4 style={{ ...styles.currentRoleCompany, color: theme.color }}>
+                {currentRole.subtitle}
+              </h4>
+              <p style={styles.currentRoleDescription}>
+                {currentRole.workDescription[0]}
+              </p>
+            </div>
+
             <Container>
-              <Timeline
-                lineColor={theme.timelineLineColor}
+              <VerticalTimeline
+                lineColor={theme.timelineLineColor || '#ddd'}
               >
                 {data.map((item) => (
-                  <Fade>
-                    <TimelineItem
-                      key={item.title + item.dateText}
-                      dateText={item.dateText}
-                      dateInnerStyle={{ background: theme.accentColor }}
-                      style={styles.itemStyle}
-                      bodyContainerStyle={{ color: theme.color }}
+                  <motion.div
+                    key={item.title + item.dateText}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    <VerticalTimelineElement
+                      date={item.dateText}
+                      dateClassName="timeline-date"
+                      iconStyle={{ background: theme.accentColor }}
+                      contentStyle={{
+                        background: theme.cardBackground,
+                        color: theme.color,
+                        border: `1px solid ${theme.cardBorderColor}`,
+                      }}
                     >
                       <h2 className="item-title">
                         {item.title}
@@ -94,19 +156,15 @@ function Experience(props) {
                           </div>
                         ))}
                       </ul>
-                    </TimelineItem>
-                  </Fade>
+                    </VerticalTimelineElement>
+                  </motion.div>
                 ))}
-              </Timeline>
+              </VerticalTimeline>
             </Container>
-          </div>
-        ) : <FallbackSpinner /> }
-    </>
+          </motion.div>
+        ) : <FallbackSpinner />}
+      </div>
+    </section>
   );
 }
-
-Experience.propTypes = {
-  header: PropTypes.string.isRequired,
-};
-
 export default Experience;

@@ -13,7 +13,7 @@ function Education(props) {
   const theme = useContext(ThemeContext);
   const { header } = props;
   const [data, setData] = useState(null);
-  const [width, setWidth] = useState('50vw');
+  const [width, setWidth] = useState('800px');
   const [mode, setMode] = useState('VERTICAL_ALTERNATING');
 
   useEffect(() => {
@@ -26,16 +26,13 @@ function Education(props) {
 
     if (window?.innerWidth < 576) {
       setMode('VERTICAL');
-    }
-
-    if (window?.innerWidth < 576) {
       setWidth('90vw');
     } else if (window?.innerWidth >= 576 && window?.innerWidth < 768) {
-      setWidth('90vw');
+      setWidth('85vw');
     } else if (window?.innerWidth >= 768 && window?.innerWidth < 1024) {
       setWidth('75vw');
     } else {
-      setWidth('50vw');
+      setWidth('800px');
     }
   }, []);
 
@@ -51,7 +48,7 @@ function Education(props) {
                 allowDynamicUpdate
                 useReadMore={false}
                 items={data.education}
-                cardHeight={250}
+                cardHeight={200}
                 mode={mode}
                 theme={{
                   primary: theme.accentColor,

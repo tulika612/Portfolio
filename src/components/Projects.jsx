@@ -1,25 +1,41 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Container, Row, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { ThemeContext } from 'styled-components';
-import PropTypes from 'prop-types';
-import Fade from 'react-reveal/Fade';
-import Header from './Header';
+import { motion } from 'framer-motion';
 import endpoints from '../constants/endpoints';
 import ProjectCard from './projects/ProjectCard';
 import FallbackSpinner from './FallbackSpinner';
 
 const styles = {
-  containerStyle: {
-    marginBottom: 25,
+  projectsContainer: {
+    padding: '4rem 2rem',
+    maxWidth: '1200px',
+    margin: '0 auto',
+  },
+  titleStyle: {
+    fontSize: '2.5rem',
+    fontWeight: '600',
+    marginBottom: '3rem',
+    textAlign: 'center',
+  },
+  projectsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+    gap: '2rem',
+    marginBottom: '2rem',
   },
   showMoreStyle: {
     margin: 25,
+    borderRadius: 6,
+    fontWeight: '500',
+    padding: '0.75rem 2rem',
+    fontSize: '1rem',
+    transition: 'opacity 0.2s ease',
   },
 };
 
-const Projects = (props) => {
+const Projects = () => {
   const theme = useContext(ThemeContext);
-  const { header } = props;
   const [data, setData] = useState(null);
   const [showMore, setShowMore] = useState(false);
 
@@ -31,41 +47,42 @@ const Projects = (props) => {
       .then((res) => setData(res))
       .catch((err) => err);
   }, []);
-  const numberOfItems = showMore && data ? data.length : 6;
-  return (
-    <>
-      <Header title={header} />
-      {data
-        ? (
-          <div className="section-content-container">
-            <Container style={styles.containerStyle}>
-              <Row xs={1} sm={1} md={2} lg={3} className="g-4">
-                {data.projects?.slice(0, numberOfItems).map((project) => (
-                  <Fade key={project.title}>
-                    <ProjectCard project={project} />
-                  </Fade>
-                ))}
-              </Row>
 
-              {!showMore
-                && (
+  const numberOfItems = showMore && data ? data.length : 6;
+
+  return (
+    <section id="projects" style={{ backgroundColor: theme.background, color: theme.color }}>
+      <div style={styles.projectsContainer}>
+        <h2 style={{ ...styles.titleStyle, color: theme.color }}>Featured Projects</h2>
+
+        {data ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div style={styles.projectsGrid} className="projects-grid">
+              {data.projects?.slice(0, numberOfItems).map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
+
+            {!showMore && (
+              <div style={{ textAlign: 'center' }}>
                 <Button
                   style={styles.showMoreStyle}
                   variant={theme.bsSecondaryVariant}
                   onClick={() => setShowMore(true)}
+                  className="show-more-button"
                 >
-                  show more
+                  Show More Projects
                 </Button>
-                )}
-            </Container>
-          </div>
-        ) : <FallbackSpinner /> }
-    </>
+              </div>
+            )}
+          </motion.div>
+        ) : <FallbackSpinner />}
+      </div>
+    </section>
   );
 };
-
-Projects.propTypes = {
-  header: PropTypes.string.isRequired,
-};
-
 export default Projects;

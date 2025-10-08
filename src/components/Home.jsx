@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Typewriter from 'typewriter-effect';
 import Fade from 'react-reveal';
+import { ThemeContext } from 'styled-components';
 import endpoints from '../constants/endpoints';
 import Social from './Social';
 import FallbackSpinner from './FallbackSpinner';
 
 const styles = {
   nameStyle: {
-    fontSize: '5em',
+    fontSize: '3rem',
+    fontWeight: '600',
+    marginBottom: '1rem',
+    color: '#333333',
+    letterSpacing: '-0.01em',
   },
   inlineChild: {
     display: 'inline-block',
+    fontSize: '1.5rem',
+    fontWeight: '400',
+    marginBottom: '2rem',
+    opacity: 0.8,
   },
   mainContainer: {
     height: '100%',
@@ -18,10 +27,22 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: '2rem',
+    maxWidth: '800px',
+    margin: '0 auto',
+  },
+  typewriterContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    gap: '0.5rem',
+    marginBottom: '2rem',
   },
 };
 
 function Home() {
+  const theme = useContext(ThemeContext);
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -36,8 +57,8 @@ function Home() {
   return data ? (
     <Fade>
       <div style={styles.mainContainer}>
-        <h1 style={styles.nameStyle}>{data?.name}</h1>
-        <div style={{ flexDirection: 'row' }}>
+        <h1 style={{ ...styles.nameStyle, color: theme.color }}>{data?.name}</h1>
+        <div style={styles.typewriterContainer}>
           <h2 style={styles.inlineChild}>I&apos;m&nbsp;</h2>
           <Typewriter
             options={{
