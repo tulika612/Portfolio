@@ -103,8 +103,9 @@ function About() {
                     Current Focus
                   </h3>
                   <p>
-                    Developing xLAMFlow, an iOS productivity assistant powered by quantized
-                    xLAM-2, and working on MobileAIBench for cross-platform AI benchmarking.
+                    Exploring the next frontier of on-device and agentic AI, building
+                    intelligent assistants that combine efficient edge inference with
+                    open-source large-model research and benchmarking.
                   </p>
                 </div>
               </div>

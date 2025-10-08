@@ -1,0 +1,56 @@
+{
+  "research": [
+    {
+      "title": "ICodeNet-A Hierarchical Neural Network Approach For Source Code Author Identification",
+      "authors": "Pranali Bora, Tulika Awalgaonkar, Himanshu Palve, Raviraj Joshi, Purvi Goel",
+      "venue": "Proceedings of the 2021 13th International Conference on Machine Learning and Computing, 2021",
+      "year": "2021",
+      "links": [
+        {
+          "text": "Paper",
+          "href": "https://dl.acm.org/doi/10.1145/3457682.3457709"
+        },
+        {
+          "text": "GitHub",
+          "href": "https://github.com/tulika612/Code_Stylometry"
+        }
+      ]
+    },
+    {
+        "title": "ToolScan: A Benchmark For Characterizing Errors In Tool-Use LLMs",
+        "authors": "Shirley Kokane, Ming Zhu, Tulika Manoj Awalgaonkar, Jianguo Zhang, Akshara Prabhakar, Thai Quoc Hoang, Zuxin Liu, Rithesh R N, Liangwei Yang, Weiran Yao, Juntao Tan, Zhiwei Liu, Shelby Heinecke, Huan Wang, Juan Carlos Niebles, Caiming Xiong, Silvio Savarese",
+        "venue": "ICLR 2025 Workshop on Building Trust in Language Models and Applications",
+        "year": "2025",
+        "links": [
+          {
+            "text": "Paper",
+            "href": "https://arxiv.org/html/2411.13547v2"
+          }
+        ]
+      },
+      {
+        "title": "Mobileaibench: Benchmarking llms and lmms for on-device use cases",
+        "authors": "Rithesh Murthy, Liangwei Yang, Juntao Tan, Tulika Manoj Awalgaonkar, Yilun Zhou, Shelby Heinecke, Sachin Desai, Jason Wu, Ran Xu, Sarah Tan, Jianguo Zhang, Zhiwei Liu, Shirley Kokane, Zuxin Liu, Ming Zhu, Huan Wang, Caiming Xiong, Silvio Savarese",
+        "venue": "pre-print",
+        "year": "2024",
+        "links": [
+          {
+            "text": "Paper",
+            "href": "https://arxiv.org/pdf/2406.10290?"
+          }
+        ]
+      },
+      {
+        "title": "PersonaBench: Evaluating AI Models on Understanding Personal Information through Accessing (Synthetic) Private User Data",
+        "authors": "Juntao Tan, Liangwei Yang, Zuxin Liu, Zhiwei Liu, Rithesh R N, Tulika Manoj Awalgaonkar, Jianguo Zhang, Weiran Yao, Ming Zhu, Shirley Kokane, silvio savarese, Huan Wang, Caiming Xiong, Shelby Heinecke",
+        "venue": "The 63rd Annual Meeting of the Association for Computational Linguistics, 2025",
+        "year": "2025",
+        "links": [
+          {
+            "text": "Paper",
+            "href": "https://arxiv.org/abs/2502.20616"
+          }
+        ]
+      }
+  ]
+}

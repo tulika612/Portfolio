@@ -83,8 +83,8 @@ function Contact() {
   const theme = useContext(ThemeContext);
 
   const handleResumeDownload = () => {
-    // Add your resume download logic here
-    window.open('/resume.pdf', '_blank');
+    // Open Google Drive link for resume download
+    window.open('https://drive.google.com/file/d/1FRYHxlxcO-NUA6At0lx2lfDVTL1xq7bC/view?usp=sharing', '_blank');
   };
 
   const handleEmailClick = () => {

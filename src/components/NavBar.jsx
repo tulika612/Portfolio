@@ -51,7 +51,9 @@ const NavBar = () => {
     { id: 'home', title: 'Home' },
     { id: 'about', title: 'About' },
     { id: 'experience', title: 'Experience' },
+    { id: 'education', title: 'Education' },
     { id: 'projects', title: 'Projects' },
+    { id: 'research', title: 'Research' },
     { id: 'skills', title: 'Skills' },
     { id: 'contact', title: 'Contact' },
   ];

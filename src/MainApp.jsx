@@ -5,8 +5,10 @@ import NavBarWithRouter from './components/NavBar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Research from './components/Research';
 import Contact from './components/Contact';
 
 function MainApp() {
@@ -17,7 +19,9 @@ function MainApp() {
         <Hero />
         <About />
         <Experience />
+        <Education />
         <Projects />
+        <Research />
         <Skills />
         <Contact />
       </main>

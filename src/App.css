@@ -271,6 +271,18 @@ section.timeline-card-content div.card-description > p {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+.research-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Research Grid Responsive */
+@media (max-width: 768px) {
+  .research-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .header {

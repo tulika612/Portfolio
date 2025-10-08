@@ -20,30 +20,6 @@ const styles = {
     marginBottom: '3rem',
     textAlign: 'center',
   },
-  currentRoleHighlight: {
-    padding: '2rem',
-    borderRadius: '16px',
-    marginBottom: '3rem',
-    border: '2px solid',
-    textAlign: 'center',
-  },
-  currentRoleTitle: {
-    fontSize: '1.8rem',
-    fontWeight: '700',
-    marginBottom: '0.5rem',
-  },
-  currentRoleCompany: {
-    fontSize: '1.3rem',
-    fontWeight: '600',
-    marginBottom: '1rem',
-    opacity: 0.8,
-  },
-  currentRoleDescription: {
-    fontSize: '1.1rem',
-    lineHeight: '1.6',
-    maxWidth: '600px',
-    margin: '0 auto',
-  },
   ulStyle: {
     listStylePosition: 'outside',
     paddingLeft: 20,
@@ -76,35 +52,16 @@ function Experience() {
       .catch((err) => err);
   }, []);
 
-  const currentRole = data?.[0]; // Salesforce role
-
   return (
     <section id="experience" style={{ backgroundColor: theme.background, color: theme.color }}>
       <div style={styles.experienceContainer}>
         <h2 style={{ ...styles.titleStyle, color: theme.color }}>Experience</h2>
-        {data && currentRole ? (
+        {data ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div style={{
-              ...styles.currentRoleHighlight,
-              backgroundColor: theme.cardBackground,
-              borderColor: theme.accentColor,
-            }}
-            >
-              <h3 style={{ ...styles.currentRoleTitle, color: theme.accentColor }}>
-                {currentRole.title}
-              </h3>
-              <h4 style={{ ...styles.currentRoleCompany, color: theme.color }}>
-                {currentRole.subtitle}
-              </h4>
-              <p style={styles.currentRoleDescription}>
-                {currentRole.workDescription[0]}
-              </p>
-            </div>
-
             <Container>
               <VerticalTimeline
                 lineColor={theme.timelineLineColor || '#ddd'}
@@ -119,14 +76,23 @@ function Experience() {
                     <VerticalTimelineElement
                       date={item.dateText}
                       dateClassName="timeline-date"
-                      iconStyle={{ background: theme.accentColor }}
+                      iconStyle={{
+                        background: 'transparent',
+                        border: `2px solid ${theme.accentColor}`,
+                        width: '12px',
+                        height: '12px',
+                        marginLeft: '-6px',
+                        marginTop: '8px',
+                      }}
                       contentStyle={{
                         background: theme.cardBackground,
                         color: theme.color,
                         border: `1px solid ${theme.cardBorderColor}`,
+                        borderRadius: '8px',
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                       }}
                     >
-                      <h2 className="item-title">
+                      <h2 className="item-title" style={{ color: theme.color, fontWeight: '600' }}>
                         {item.title}
                       </h2>
                       <div style={styles.subtitleContainerStyle}>
