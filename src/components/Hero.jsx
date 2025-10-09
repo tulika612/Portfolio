@@ -98,7 +98,7 @@ function Hero() {
 
   return data ? (
     <section id="home" style={{ backgroundColor: theme.background, color: theme.color }}>
-      <div style={styles.heroContainer}>
+      <div style={styles.heroContainer} className="hero-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ function Hero() {
             {data?.name}
           </h1>
 
-          <div style={styles.titleStyle}>
+          <div style={styles.titleStyle} className="title-style">
             <span>I&apos;m </span>
             <Typewriter
               options={{
@@ -119,30 +119,33 @@ function Hero() {
             />
           </div>
 
-          <div style={{
-            ...styles.currentRoleStyle,
-            backgroundColor: theme.accentColor,
-            color: 'white',
-            borderColor: theme.accentColor,
-          }}
+          <div
+            style={{
+              ...styles.currentRoleStyle,
+              backgroundColor: theme.accentColor,
+              color: 'white',
+              borderColor: theme.accentColor,
+            }}
+            className="current-role-style"
           >
             Currently: Machine Learning Engineer at Salesforce
           </div>
 
-          <p style={styles.descriptionStyle}>
+          <p style={styles.descriptionStyle} className="description-style">
             Passionate about building intelligent systems and solving complex problems
             through machine learning. I specialize in developing scalable AI solutions,
             optimizing model performance, and creating innovative applications that
             make a real impact.
           </p>
 
-          <div style={styles.ctaContainer}>
+          <div style={styles.ctaContainer} className="cta-container">
             <button
               type="button"
               style={{
                 ...styles.ctaButton,
                 ...styles.primaryButton,
               }}
+              className="cta-button"
               onClick={handleResumeDownload}
             >
               Download Resume
@@ -155,6 +158,7 @@ function Hero() {
                 borderColor: theme.accentColor,
                 color: theme.accentColor,
               }}
+              className="cta-button"
               onClick={handleContactClick}
             >
               Get In Touch

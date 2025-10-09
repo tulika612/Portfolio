@@ -82,7 +82,7 @@ function Skills() {
 
   return (
     <section id="skills" style={{ backgroundColor: theme.background, color: theme.color }}>
-      <div style={styles.skillsContainer}>
+      <div style={styles.skillsContainer} className="skills-container">
         <h2 style={{ ...styles.titleStyle, color: theme.color }}>Skills & Technologies</h2>
 
         {data ? (
@@ -92,7 +92,7 @@ function Skills() {
             transition={{ duration: 0.6 }}
           >
             {renderSkillsIntro(data.intro)}
-            <div style={styles.skillsGrid}>
+            <div style={styles.skillsGrid} className="skills-grid">
               {data.skills?.map((category) => (
                 <div
                   key={category.title}
@@ -101,6 +101,7 @@ function Skills() {
                     backgroundColor: theme.cardBackground,
                     borderColor: theme.cardBorderColor,
                   }}
+                  className="skill-category"
                 >
                   <h3 style={{ ...styles.skillCategoryTitle, color: theme.color }}>
                     {category.title}

@@ -78,15 +78,16 @@ const ProjectCard = (props) => {
         variant="top"
         src={project?.image}
         style={styles.cardImageStyle}
+        className="project-image"
       />
       <Card.Body style={{ padding: '1.5rem', flexGrow: 1 }}>
-        <Card.Title style={styles.cardTitleStyle}>{project.title}</Card.Title>
-        <Card.Text style={styles.cardTextStyle}>
+        <Card.Title style={styles.cardTitleStyle} className="project-title">{project.title}</Card.Title>
+        <Card.Text style={styles.cardTextStyle} className="project-description">
           {parseBodyText(project.bodyText)}
         </Card.Text>
       </Card.Body>
 
-      <Card.Body style={{ padding: '0 1.5rem 1rem 1.5rem' }}>
+      <Card.Body style={{ padding: '0 1.5rem 1rem 1.5rem' }} className="project-buttons">
         {project?.links?.map((link) => (
           <Button
             key={link.href}
@@ -106,6 +107,7 @@ const ProjectCard = (props) => {
             backgroundColor: theme.cardFooterBackground,
             borderTopColor: theme.cardBorderColor,
           }}
+          className="project-tags"
         >
           {project.tags.map((tag) => (
             <Badge
@@ -114,6 +116,7 @@ const ProjectCard = (props) => {
               bg={theme.bsSecondaryVariant}
               text={theme.bsPrimaryVariant}
               style={styles.badgeStyle}
+              className="project-tag"
             >
               {tag}
             </Badge>

@@ -40,11 +40,23 @@ const NavBar = () => {
   }, []);
 
   const handleNavClick = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Close mobile menu first
     setExpanded(false);
+
+    // Wait for menu to close, then scroll
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Scroll to element with proper offset for fixed navbar
+        const elementPosition = element.offsetTop;
+        const offsetPosition = elementPosition - 80; // Account for navbar height
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }, 200);
   };
 
   const navItems = [

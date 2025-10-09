@@ -52,7 +52,7 @@ const Projects = () => {
 
   return (
     <section id="projects" style={{ backgroundColor: theme.background, color: theme.color }}>
-      <div style={styles.projectsContainer}>
+      <div style={styles.projectsContainer} className="projects-container">
         <h2 style={{ ...styles.titleStyle, color: theme.color }}>Featured Projects</h2>
 
         {data ? (

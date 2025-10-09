@@ -125,7 +125,7 @@ function Research() {
 
   return (
     <section id="research" style={{ backgroundColor: theme.background, color: theme.color }}>
-      <div style={styles.researchContainer}>
+      <div style={styles.researchContainer} className="research-container">
         <h2 style={{ ...styles.titleStyle, color: theme.color }}>Research Publications</h2>
 
         {data ? (
@@ -148,7 +148,7 @@ function Research() {
                   }}
                   className="research-card"
                 >
-                  <h3 style={{ ...styles.researchTitle, color: theme.color }}>
+                  <h3 style={{ ...styles.researchTitle, color: theme.color }} className="research-title">
                     {paper.title}
                   </h3>
 
@@ -165,7 +165,7 @@ function Research() {
                     <span style={{ marginLeft: '1rem', opacity: 0.9 }}>{paper.description}</span>
                   </div>
 
-                  <div style={styles.researchLinks}>
+                  <div style={styles.researchLinks} className="research-links">
                     {paper.links?.map((link) => (
                       <button
                         key={link.text}

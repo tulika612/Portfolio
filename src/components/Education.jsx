@@ -35,7 +35,7 @@ function Education() {
 
   return (
     <section id="education" style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }}>
-      <div style={styles.educationContainer}>
+      <div style={styles.educationContainer} className="education-container">
         <h2 style={{ ...styles.titleStyle, color: '#ffffff' }}>Education</h2>
         {data ? (
           <motion.div

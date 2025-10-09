@@ -105,7 +105,7 @@ function Contact() {
 
   return (
     <section id="contact" style={{ backgroundColor: theme.background, color: theme.color }}>
-      <div style={styles.contactContainer}>
+      <div style={styles.contactContainer} className="contact-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,7 +119,7 @@ function Contact() {
             collaborations, or just having a chat about technology and AI.
           </p>
 
-          <div style={styles.contactGrid}>
+          <div style={styles.contactGrid} className="contact-grid">
             <div
               style={{
                 ...styles.contactCard,
@@ -211,6 +211,7 @@ function Contact() {
               backgroundColor: theme.cardBackground,
               borderColor: theme.accentColor,
             }}
+            className="resume-section"
           >
             <h3 style={{ ...styles.resumeTitle, color: theme.accentColor }}>
               Download My Resume

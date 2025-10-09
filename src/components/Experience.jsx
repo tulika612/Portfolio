@@ -54,7 +54,7 @@ function Experience() {
 
   return (
     <section id="experience" style={{ backgroundColor: theme.background, color: theme.color }}>
-      <div style={styles.experienceContainer}>
+      <div style={styles.experienceContainer} className="experience-container">
         <h2 style={{ ...styles.titleStyle, color: theme.color }}>Experience</h2>
         {data ? (
           <motion.div
@@ -96,15 +96,15 @@ function Experience() {
                         {item.title}
                       </h2>
                       <div style={styles.subtitleContainerStyle}>
-                        <h4 style={{ ...styles.subtitleStyle, color: theme.accentColor }}>
+                        <h4 style={{ ...styles.subtitleStyle, color: theme.accentColor }} className="subtitle-style">
                           {item.subtitle}
                         </h4>
                         {item.workType && (
-                        <h5 style={styles.inlineChild}>
-                    &nbsp;·
-                          {' '}
-                          {item.workType}
-                        </h5>
+                          <h5 style={styles.inlineChild}>
+                            &nbsp;·
+                            {' '}
+                            {item.workType}
+                          </h5>
                         )}
                       </div>
                       <ul style={styles.ulStyle}>

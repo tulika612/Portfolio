@@ -66,7 +66,7 @@ function About() {
 
   return (
     <section id="about" style={{ backgroundColor: theme.background, color: theme.color }}>
-      <div style={styles.aboutContainer}>
+      <div style={styles.aboutContainer} className="about-container">
         <h2 style={{ ...styles.titleStyle, color: theme.color }}>About Me</h2>
         {data ? (
           <motion.div
@@ -74,8 +74,8 @@ function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div style={styles.contentGrid}>
-              <div style={styles.textContent}>
+            <div style={styles.contentGrid} className="content-grid">
+              <div style={styles.textContent} className="text-content">
                 <p>
                   I&apos;m a passionate Machine Learning Engineer currently working at Salesforce,
                   where I develop cutting-edge AI solutions and optimize model performance
@@ -93,11 +93,13 @@ function About() {
                   multimodal systems, and creating AI solutions that make a real impact.
                 </p>
 
-                <div style={{
-                  ...styles.highlightBox,
-                  backgroundColor: theme.cardBackground,
-                  borderColor: theme.accentColor,
-                }}
+                <div
+                  style={{
+                    ...styles.highlightBox,
+                    backgroundColor: theme.cardBackground,
+                    borderColor: theme.accentColor,
+                  }}
+                  className="highlight-box"
                 >
                   <h3 style={{ ...styles.highlightTitle, color: theme.accentColor }}>
                     Current Focus
@@ -110,11 +112,12 @@ function About() {
                 </div>
               </div>
 
-              <div style={styles.imageContainer}>
+              <div style={styles.imageContainer} className="image-container">
                 <img
                   src={data?.imageSource}
                   alt="Tulika Awalgaonkar"
                   style={styles.aboutImage}
+                  className="about-image"
                 />
               </div>
             </div>
