@@ -282,7 +282,7 @@ export default function MainApp() {
           <div id="about" className="about-layout intro-layout">
             <div className="portrait-wrap">
               <img src={`${process.env.PUBLIC_URL || ''}/images/about/pro.png`} alt="Tulika Awalgaonkar" loading="eager" />
-              <span className="portrait-caption mono">TULIKA AWALGAONKAR</span>
+              <span className="portrait-caption mono">THE HUMAN BEHIND THE MODELS.</span>
             </div>
             <div className="about-copy">
               <p className="eyebrow">
@@ -290,14 +290,14 @@ export default function MainApp() {
               </p>
               <h1>Hi, I’m Tulika.</h1>
               <p>
-                I’m a machine learning engineer at Salesforce, working on agentic model training,
-                multi-agent simulation, and language model systems.
+                I’m a Machine Learning Engineer at Salesforce, working on language model training,
+                agentic AI, and multi-agent simulation. My work spans preparing training data,
+                fine-tuning reasoning and action models, and evaluating agent behavior.
               </p>
               <p>
-                Before Salesforce, I was a founding engineer at Lamini, building LLM fine-tuning
-                and inference infrastructure. My path has taken me through GPU
-                benchmarking at VMware, computer vision, and a master’s in Computer
-                Science at UC Irvine.
+                Previously, I was a founding engineer at Lamini, where I built LLM fine-tuning
+                and inference infrastructure. I hold a master’s degree in Computer Science from
+                the University of California, Irvine.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#work">
