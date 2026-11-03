@@ -17,6 +17,7 @@
         {
             "title": "Founding Engineer",
             "subtitle": "Lamini AI",
+            "companyNote": "Later acqui-hired by AMD.",
             "workType": "Full-time",
             "workDescription": [
                 "Moved existing system to serverless using Azure functions and automated the process using Terraform on GitHub actions, extending support for up to 10,000 users",

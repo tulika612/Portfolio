@@ -391,3 +391,5 @@ h3 { font-size: 22px; letter-spacing: -.6px; line-height: 1.35; margin-bottom: 1
   .navigation a { padding: 14px 0; font-size: 16px; }
   .navigation .nav-contact { display: block; border-left: 0; border-top: 1px solid var(--border); margin-top: 10px; color: var(--accent); }
 }
+
+.company-note { font-size: 14px; color: var(--accent); line-height: 1.6; margin-bottom: 15px; }

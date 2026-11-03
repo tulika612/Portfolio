@@ -37,13 +37,14 @@ test('shows ML work and loads real publications and experience', async () => {
   expect(await screen.findByRole('heading', { name: research.research[0].title }))
     .toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Salesforce' })).toBeInTheDocument();
+  expect(screen.getByText('Later acqui-hired by AMD.')).toBeVisible();
   expect(screen.queryByRole('link', { name: 'View full screenshot of xLAMFlow' }))
     .not.toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Watch demo' }))
     .toHaveAttribute('href', 'https://lnkd.in/p/gH9DNkhr');
   expect(screen.queryByRole('link', { name: 'Read the xLAM paper' })).not.toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'View résumé' })).toHaveAttribute('href',
-    'https://drive.google.com/file/d/185GYTBLNkPMPpVfkZXluUWxi-tqPxyy9/view?usp=sharing');
+    'https://drive.google.com/file/d/1BJQsx3AcCHBRUpfxQ-y_XwpjDi2ZjZPT/view?usp=sharing');
 });
 
 test('filters project archive without losing the selected work', async () => {

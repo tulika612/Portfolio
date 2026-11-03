@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const resume = 'https://drive.google.com/file/d/185GYTBLNkPMPpVfkZXluUWxi-tqPxyy9/view?usp=sharing';
+const resume = 'https://drive.google.com/file/d/1BJQsx3AcCHBRUpfxQ-y_XwpjDi2ZjZPT/view?usp=sharing';
 const social = [
   ['GitHub', 'https://github.com/tulika612'],
   ['LinkedIn', 'https://www.linkedin.com/in/tulika-awalgaonkar/'],
@@ -500,6 +500,7 @@ export default function MainApp() {
                   </div>
                   <h3>{job.subtitle}</h3>
                   <p className="job-title">{job.title}</p>
+                  {job.companyNote && <p className="company-note">{job.companyNote}</p>}
                   <p className="job-summary">{job.workDescription[0]}</p>
                   <button type="button" className="text-button" aria-expanded={expandedExperience === index} aria-controls={`job-${index}`} onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}>{expandedExperience === index ? 'Less detail −' : 'More about this role +'}</button>
                   <div id={`job-${index}`} hidden={expandedExperience !== index}><ul>{job.workDescription.slice(1).map((description) => <li key={description}>{description}</li>)}</ul></div>
