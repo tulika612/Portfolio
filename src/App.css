@@ -377,3 +377,8 @@ h3 { font-size: 22px; letter-spacing: -.6px; line-height: 1.35; margin-bottom: 1
 
 .credentials-strip > div > div > a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 5px; }
 .experience-item, #education, #about { scroll-margin-top: 110px; }
+
+.project-affiliation { align-self: flex-start; display: inline-flex; border: 1px solid var(--border); border-radius: 3px; background: var(--tag); color: var(--accent); font-size: 11px; font-weight: 500; line-height: 1.5; padding: 4px 9px; margin: 0 0 12px; }
+
+.project-paper-link { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; color: var(--accent); font-size: 12px; }
+.project-paper-link:hover { text-decoration: underline; text-underline-offset: 4px; }

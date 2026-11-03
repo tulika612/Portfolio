@@ -3,6 +3,7 @@
         {
             "image" : "images/projects/Screenshot1.png",
             "title": "Source Code Stylometry",
+            "affiliation": "PICT",
             "bodyText": "- Developed a full-stack web application to recognize author by their style of coding using Flask REST API \n- Published a reseach paper in the ICMLC 2021 Conference(ISBN: 978-1-4503-8931-0), February 2021",
             "links": [
                 {
@@ -23,6 +24,7 @@
         {
             "image" : "images/projects/android.png",
             "title": "ANNAM Food Ordering App",
+            "affiliation": "PICT",
             "bodyText": "- A Food Ordering app made using **Android Studio** for **PICT** Students\n - Features: secure login, cart addition and deletion, payment gateway, review, and feedback\n - Advance features such as voice assistant,tab view and flipper images for better user experience",
             "links": [
                 {
@@ -44,6 +46,7 @@
         {
             "image" : "images/projects/Screenshot4.png",
             "title": "InfoLens In-house Search Engine",
+            "affiliation": "UCI",
             "bodyText": "- Web app to search queries across videos and text and implemented features like auto complete, auto correct and page ranking",
             "links": [
                 {
@@ -62,6 +65,7 @@
         {
             "image" : "images/projects/sanskrit.png",
             "title": "OCR for sanskrit language",
+            "affiliation": "Personal project · During COVID",
             "bodyText": "- Developed an automated OCR system for Sanskrit language and deployed it to web interface using Django\n - Compared ARU-Net and tesseract for creating bounding boxes, with IoU values of 0.96 and 0.91 respectively \n - Explored models like BLSTM and AttentionLSTM, which achieved accuracy of 88.26% and 94.84% respectively,",
             "links": [
                 {
@@ -78,6 +82,7 @@
         {
             "image" : "images/projects/image12.png",
             "title": "Meeting Room booking Web App",
+            "affiliation": "PICT",
             "bodyText": "- Designed a personalized meeting room website for booking rooms using HTML/CSS, PHP and MySQL\n- Included dynamic features such as Registration, Login, Booking and Cancellation along with Error handling",
             "links": [
                 {
@@ -96,6 +101,7 @@
         {
             "image" : "images/projects/kin.png",
             "title": "Kinship Detection using Deep Neural Network",
+            "affiliation": "UCI",
             "bodyText": "- Performed comparative analysis of three different deep neural network architectures for kinship detection\n - Architectures used - a transfer learning model based on ResNet50, ResNet50 with improved concatenation, and a combination of the previous model with multiple dense layers",
             "links": [
                 {
@@ -116,6 +122,7 @@
         {
             "image" : "images/projects/student.png",
             "title": "Student Helper",
+            "affiliation": "UCI",
             "bodyText": "- Deployed an web application for keystone and capstone projects using react and nodejs\n - Integrated platform where students can present ideas, form groups and create projects which can be tracked and graded by the professors and handed over seamlessly to other teams",
             "links": [
                 {

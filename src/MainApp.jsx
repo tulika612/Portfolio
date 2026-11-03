@@ -7,21 +7,23 @@ const social = [
   ['LinkedIn', 'https://www.linkedin.com/in/tulika-awalgaonkar/'],
   ['Google Scholar', 'https://scholar.google.com/citations?user=9C_VGIUAAAAJ&hl=en'],
 ];
-const navigation = ['Work', 'About', 'Experience', 'Research'];
+const navigation = ['About', 'Work', 'Experience', 'Research'];
 const supportingWork = [
   {
-    title: 'xLAMFlow', category: 'On-device AI', kind: 'Machine learning', description: 'An iOS productivity assistant powered by quantized xLAM-2. Bringing multi-step agentic workflows to the device, with privacy at the core.', tags: ['Action models', 'Swift', 'GGUF'], visual: 'flow', contribution: 'Built the Swift assistant and prepared models for edge deployment.', outcome: 'Single-step, multi-turn, and multi-step workflows with local inference.', label: 'Watch demo', href: 'https://lnkd.in/p/gH9DNkhr',
+    title: 'xLAMFlow', affiliation: 'Salesforce', category: 'On-device AI', kind: 'Machine learning', description: 'An iOS productivity assistant powered by quantized xLAM-2. Bringing multi-step agentic workflows to the device, with privacy at the core.', tags: ['Action models', 'Swift', 'GGUF'], visual: 'flow', contribution: 'Built the Swift assistant and prepared models for edge deployment.', outcome: 'Single-step, multi-turn, and multi-step workflows with local inference.', label: 'Watch demo', href: 'https://lnkd.in/p/gH9DNkhr',
   },
   {
-    title: 'MobileAIBench', category: 'Evaluation & benchmarking', kind: 'Machine learning', description: 'A cross-platform framework for evaluating LLMs and multimodal models on real mobile hardware. Measuring what matters beyond the leaderboard.', tags: ['LLMs / LMMs', 'iOS & Android', 'Quantization'], screenshot: 'images/projects/mobileaibench.png', screenshotAlt: 'MobileAIBench model selection and on-device benchmark results', contribution: 'Designed and open-sourced the iOS / Android benchmarking framework.', outcome: 'Evaluates LLMs and multimodal models across 4-, 8-, and 16-bit quantization.', label: 'Read the paper', href: 'https://arxiv.org/abs/2406.10290',
+    title: 'MobileAIBench', affiliation: 'Salesforce', category: 'Evaluation & benchmarking', kind: 'Machine learning', description: 'A cross-platform framework for evaluating LLMs and multimodal models on real mobile hardware. Measuring what matters beyond the leaderboard.', tags: ['LLMs / LMMs', 'iOS & Android', 'Quantization'], screenshot: 'images/projects/mobileaibench.png', screenshotAlt: 'MobileAIBench model selection and on-device benchmark results', contribution: 'Designed and open-sourced the iOS / Android benchmarking framework.', outcome: 'Evaluates LLMs and multimodal models across 4-, 8-, and 16-bit quantization.', label: 'Read the paper', href: 'https://arxiv.org/abs/2406.10290',
   },
   {
-    title: 'Source Code Stylometry', category: 'Applied machine learning', kind: 'Machine learning', description: 'Identifying code authors through their programming style. A full-stack research project combining neural networks with a Flask application.', tags: ['Python', 'Keras', 'Flask'], visual: 'code', contribution: 'Built an author-identification web application with a Flask REST API.', outcome: 'Research published at ICMLC 2021.', outcomeLabel: 'Outcome', label: 'Explore the project', href: 'https://github.com/tulika612/Code_Stylometry',
+    title: 'Source Code Stylometry', affiliation: 'PICT', category: 'Applied machine learning', kind: 'Machine learning', description: 'Identifying code authors through their programming style. A full-stack research project combining neural networks with a Flask application.', tags: ['Python', 'Keras', 'Flask'], visual: 'code', contribution: 'Built an author-identification web application with a Flask REST API.', outcome: 'Research published at ICMLC 2021.', outcomeLabel: 'Outcome', label: 'Explore the project', href: 'https://github.com/tulika612/Code_Stylometry',
   },
 ];
 const featured = [
   {
     title: 'Salesforce Koa',
+    paperHref: 'https://arxiv.org/pdf/2609.15066',
+    affiliation: 'Salesforce',
     category: 'Agentic model training',
     kind: 'Machine learning',
     description: 'A 120B CRM reasoning model post-trained from NVIDIA Nemotron-3-Super-120B.',
@@ -35,6 +37,7 @@ const featured = [
   },
   {
     title: 'Everse',
+    affiliation: 'Salesforce',
     category: 'Multi-agent simulation',
     kind: 'Machine learning',
     description: 'A multi-agent customer simulation platform for modeling customer personas and interactions.',
@@ -427,6 +430,7 @@ export default function MainApp() {
                     {project.category}
                     <span>{String(index + 1).padStart(2, '0')}</span>
                   </p>
+                  {project.affiliation && <p className="project-affiliation">{project.affiliation}</p>}
                   <h3>{project.title}</h3>
                   <p className="work-description">{project.description}</p>
                   {project.contribution && (
@@ -445,6 +449,11 @@ export default function MainApp() {
                     </a>
                   ) : (
                     <ExternalLink href={project.href} className="project-link">{project.label}</ExternalLink>
+                  )}
+                  {project.paperHref && (
+                    <ExternalLink href={project.paperHref} className="project-paper-link">
+                      Read paper
+                    </ExternalLink>
                   )}
                 </div>
               </article>
@@ -566,6 +575,7 @@ export default function MainApp() {
               Good things start
               <br />
               with a
+              {' '}
               <em>conversation.</em>
             </h2>
             <a className="contact-circle" href="mailto:tawalgao@uci.edu" aria-label="Email Tulika"><Arrow /></a>

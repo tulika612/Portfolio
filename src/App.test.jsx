@@ -28,6 +28,9 @@ test('shows ML work and loads real publications and experience', async () => {
   expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Hi, I’m Tulika.');
   expect(screen.getByAltText('Tulika Awalgaonkar')).toBeInTheDocument();
   expect(screen.getByText('WORK IN FOCUS')).toBeInTheDocument();
+  const koa = screen.getByRole('heading', { name: 'Salesforce Koa' }).closest('article');
+  expect(within(koa).getByRole('link', { name: 'Read paper' }))
+    .toHaveAttribute('href', 'https://arxiv.org/pdf/2609.15066');
   expect(screen.getByRole('heading', { name: 'xLAMFlow' })).toBeInTheDocument();
   expect([...document.querySelectorAll('.work-card h3')].map((heading) => heading.textContent))
     .toEqual(['Salesforce Koa', 'Everse', 'xLAMFlow']);
@@ -108,7 +111,7 @@ test('company links reveal the complete role and experience precedes research', 
     .toEqual(['home', 'work', 'experience', 'research', 'contact']);
   const nav = screen.getByRole('navigation', { name: 'Main navigation' });
   expect(within(nav).getAllByRole('link').slice(0, 4).map((item) => item.textContent))
-    .toEqual(['Work', 'About', 'Experience', 'Research']);
+    .toEqual(['About', 'Work', 'Experience', 'Research']);
 });
 
 test('respects a previously saved light theme', async () => {
@@ -116,4 +119,29 @@ test('respects a previously saved light theme', async () => {
   render(<App />);
   await screen.findByRole('heading', { name: 'Salesforce' });
   expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+});
+
+test('shows project affiliations across the selected work and archive filters', async () => {
+  render(<App />);
+  await screen.findByRole('heading', { name: 'Salesforce' });
+  const affiliationFor = (title) => within(
+    screen.getByRole('heading', { name: title }).closest('article'),
+  );
+  ['Salesforce Koa', 'Everse', 'xLAMFlow'].forEach((title) => {
+    expect(affiliationFor(title).getByText('Salesforce')).toBeVisible();
+  });
+  fireEvent.click(screen.getByRole('button', { name: 'Machine learning' }));
+  expect(affiliationFor('MobileAIBench').getByText('Salesforce')).toBeVisible();
+  expect(affiliationFor('Source Code Stylometry').getByText('PICT')).toBeVisible();
+  expect(affiliationFor('Kinship Detection using Deep Neural Network').getByText('UCI'))
+    .toBeVisible();
+  expect(affiliationFor('OCR for sanskrit language').getByText('Personal project · During COVID'))
+    .toBeVisible();
+  fireEvent.click(screen.getByRole('button', { name: 'Software' }));
+  ['ANNAM Food Ordering App', 'Meeting Room booking Web App'].forEach((title) => {
+    expect(affiliationFor(title).getByText('PICT')).toBeVisible();
+  });
+  ['InfoLens In-house Search Engine', 'Student Helper'].forEach((title) => {
+    expect(affiliationFor(title).getByText('UCI')).toBeVisible();
+  });
 });
