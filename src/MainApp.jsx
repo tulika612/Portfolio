@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const resume = 'https://drive.google.com/file/d/1FRYHxlxcO-NUA6At0lx2lfDVTL1xq7bC/view?usp=sharing';
+const resume = 'https://drive.google.com/file/d/185GYTBLNkPMPpVfkZXluUWxi-tqPxyy9/view?usp=sharing';
 const social = [
   ['GitHub', 'https://github.com/tulika612'],
   ['LinkedIn', 'https://www.linkedin.com/in/tulika-awalgaonkar/'],
   ['Google Scholar', 'https://scholar.google.com/citations?user=9C_VGIUAAAAJ&hl=en'],
 ];
-const navigation = ['Work', 'Research', 'Experience', 'About'];
-const specialties = [
-  ['01', 'Agentic model training', 'Training data preparation, post-training, and fine-tuning for reasoning and action models.', ['Post-training', 'LoRA / PEFT', 'Agentic AI']],
-  ['02', 'Multi-agent simulation', 'Configurable customer personas, transcript-to-persona workflows, and behavioral fidelity evaluation.', ['Everse', 'Personas', 'Evaluation']],
-  ['03', 'Systems that scale', 'Training pipelines, multi-GPU inference, and the infrastructure that makes research usable.', ['DeepSpeed', 'Slurm', 'Azure']],
-];
+const navigation = ['Work', 'About', 'Experience', 'Research'];
 const supportingWork = [
   {
-    title: 'xLAMFlow', category: 'On-device AI', kind: 'Machine learning', description: 'An iOS productivity assistant powered by quantized xLAM-2. Bringing multi-step agentic workflows to the device, with privacy at the core.', tags: ['Action models', 'Swift', 'GGUF'], screenshot: 'images/projects/xlamflow.png', screenshotAlt: 'xLAMFlow performing a Slack action with an on-device model', contribution: 'Built the Swift assistant and prepared models for edge deployment.', outcome: 'Single-step, multi-turn, and multi-step workflows with local inference.', label: 'Watch demo', href: 'https://lnkd.in/p/gH9DNkhr',
+    title: 'xLAMFlow', category: 'On-device AI', kind: 'Machine learning', description: 'An iOS productivity assistant powered by quantized xLAM-2. Bringing multi-step agentic workflows to the device, with privacy at the core.', tags: ['Action models', 'Swift', 'GGUF'], visual: 'flow', contribution: 'Built the Swift assistant and prepared models for edge deployment.', outcome: 'Single-step, multi-turn, and multi-step workflows with local inference.', label: 'Watch demo', href: 'https://lnkd.in/p/gH9DNkhr',
   },
   {
     title: 'MobileAIBench', category: 'Evaluation & benchmarking', kind: 'Machine learning', description: 'A cross-platform framework for evaluating LLMs and multimodal models on real mobile hardware. Measuring what matters beyond the leaderboard.', tags: ['LLMs / LMMs', 'iOS & Android', 'Quantization'], screenshot: 'images/projects/mobileaibench.png', screenshotAlt: 'MobileAIBench model selection and on-device benchmark results', contribution: 'Designed and open-sourced the iOS / Android benchmarking framework.', outcome: 'Evaluates LLMs and multimodal models across 4-, 8-, and 16-bit quantization.', label: 'Read the paper', href: 'https://arxiv.org/abs/2406.10290',
@@ -36,7 +31,7 @@ const featured = [
     outcome: 'CRM-focused reasoning; accepted at NeurIPS 2026.',
     outcomeLabel: 'Outcome',
     label: 'My Salesforce experience',
-    href: '#experience',
+    href: '#experience-salesforce',
   },
   {
     title: 'Everse',
@@ -48,7 +43,7 @@ const featured = [
     contribution: 'Advanced configurable personas and an end-to-end audio / transcript-to-persona workflow.',
     outcome: 'Behavioral fidelity metrics to evaluate simulation accuracy.',
     label: 'My Salesforce experience',
-    href: '#experience',
+    href: '#experience-salesforce',
   },
   supportingWork[0],
 ];
@@ -135,6 +130,25 @@ function ProjectVisual({ type }) {
           <span className="visual-footnote">PERSONAS / INTERACTIONS / EVALUATION</span>
         </>
       )}
+      {type === 'flow' && (
+      <>
+        <span className="visual-caption">INTELLIGENCE, ON DEVICE.</span>
+        <div className="phone">
+          <div className="phone-notch" />
+          <span className="phone-symbol"><Spark /></span>
+          <span>How can I help?</span>
+          <div className="phone-task">
+            Plan my afternoon
+            <Arrow />
+          </div>
+          <div className="phone-task faint">
+            3 actions · on device
+            <span>✓</span>
+          </div>
+        </div>
+        <span className="visual-footnote">xLAM-2 / LOCAL INFERENCE</span>
+      </>
+      )}
       {type === 'code' && (
       <>
         <span className="visual-caption">EVERY DEVELOPER HAS A SIGNATURE.</span>
@@ -189,7 +203,7 @@ ProjectVisual.propTypes = { type: PropTypes.string.isRequired };
 
 export default function MainApp() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(() => { try { return localStorage.getItem('portfolio-theme') === 'dark' ? 'dark' : 'light'; } catch { return 'light'; } });
+  const [theme, setTheme] = useState(() => { try { return localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark'; } catch { return 'dark'; } });
   const [data, setData] = useState({
     experiences: [], research: [], projects: [], education: [],
   });
@@ -289,7 +303,7 @@ export default function MainApp() {
                 </a>
                 <ExternalLink href={resume} className="text-link">View résumé</ExternalLink>
               </div>
-              <div className="education-list">
+              <div id="education" className="education-list">
                 {data.education.map((education, index) => (
                   <div key={education.cardTitle}>
                     <span className="mono">{index === 0 ? 'M.S.' : 'UG'}</span>
@@ -340,22 +354,22 @@ export default function MainApp() {
           <div className="page-width">
             <span className="eyebrow">A FEW STOPS ALONG THE WAY</span>
             <div>
-              <span>
+              <a href="#experience-salesforce" onClick={() => setExpandedExperience(0)}>
                 Salesforce
                 <small>AI Research</small>
-              </span>
-              <span>
+              </a>
+              <a href="#experience-lamini-ai" onClick={() => setExpandedExperience(1)}>
                 Lamini
                 <small>Founding Engineer</small>
-              </span>
-              <span>
+              </a>
+              <a href="#experience-vmware-inc" onClick={() => setExpandedExperience(2)}>
                 VMware
                 <small>ML Systems</small>
-              </span>
-              <span>
+              </a>
+              <a href="#education">
                 UC Irvine
                 <small>M.S. Computer Science</small>
-              </span>
+              </a>
             </div>
           </div>
         </div>
@@ -425,7 +439,7 @@ export default function MainApp() {
                   )}
                   <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                   {project.href.startsWith('#') ? (
-                    <a href={project.href} className="project-link">
+                    <a href={project.href} className="project-link" onClick={() => setExpandedExperience(0)}>
                       {project.label}
                       <Arrow />
                     </a>
@@ -438,10 +452,58 @@ export default function MainApp() {
           </div>
           {loadState === 'loading' && filter !== 'Selected' && <p role="status" className="data-notice">Loading the project archive…</p>}
         </section>
+        <section id="experience" className="section page-width">
+          <Heading
+            number="02"
+            eyebrow="THE JOURNEY"
+            title={(
+              <>
+                Built on experience
+                <span className="accent">.</span>
+              </>
+)}
+          >
+            Across research teams and early-stage startups, connecting the model to the system
+            around it.
+          </Heading>
+          <div className="experience-layout">
+            <div className="experience-aside">
+              <span className="large-asterisk" aria-hidden="true"><Spark /></span>
+              <p>
+                From the first experiment
+                <br />
+                to the last mile.
+              </p>
+              <ExternalLink href={resume} className="text-link">The full résumé</ExternalLink>
+            </div>
+            <div className="experience-list">
+              {data.experiences.map((job, index) => (
+                <article id={`experience-${job.subtitle.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '')}`} className="experience-item" key={job.subtitle}>
+                  <div className="experience-line">
+                    <span className="mono">{job.dateText}</span>
+                    {index === 0 && (
+                    <span className="current-badge">
+                      <i />
+                      {' '}
+                      CURRENT
+                    </span>
+                    )}
+                  </div>
+                  <h3>{job.subtitle}</h3>
+                  <p className="job-title">{job.title}</p>
+                  <p className="job-summary">{job.workDescription[0]}</p>
+                  <button type="button" className="text-button" aria-expanded={expandedExperience === index} aria-controls={`job-${index}`} onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}>{expandedExperience === index ? 'Less detail −' : 'More about this role +'}</button>
+                  <div id={`job-${index}`} hidden={expandedExperience !== index}><ul>{job.workDescription.slice(1).map((description) => <li key={description}>{description}</li>)}</ul></div>
+                </article>
+              ))}
+            </div>
+          </div>
+          {loadState === 'loading' && <p role="status" className="data-notice">Loading experience…</p>}
+        </section>
         <section id="research" className="research-section">
           <div className="page-width section">
             <Heading
-              number="02"
+              number="03"
               eyebrow="RESEARCH & PUBLICATIONS"
               title={(
                 <>
@@ -480,73 +542,6 @@ export default function MainApp() {
             <div className="section-bottom">
               {data.research.length > 4 && <button type="button" className="text-button" onClick={() => setShowResearch(!showResearch)}>{showResearch ? 'Show fewer publications −' : `All ${data.research.length} publications +`}</button>}
               <ExternalLink href={social[2][1]} className="text-link">Find me on Google Scholar</ExternalLink>
-            </div>
-          </div>
-        </section>
-        <section id="experience" className="section page-width">
-          <Heading
-            number="03"
-            eyebrow="THE JOURNEY"
-            title={(
-              <>
-                Built on experience
-                <span className="accent">.</span>
-              </>
-)}
-          >
-            Across research teams and early-stage startups, connecting the model to the system
-            around it.
-          </Heading>
-          <div className="experience-layout">
-            <div className="experience-aside">
-              <span className="large-asterisk" aria-hidden="true"><Spark /></span>
-              <p>
-                From the first experiment
-                <br />
-                to the last mile.
-              </p>
-              <ExternalLink href={resume} className="text-link">The full résumé</ExternalLink>
-            </div>
-            <div className="experience-list">
-              {data.experiences.map((job, index) => (
-                <article className="experience-item" key={job.subtitle}>
-                  <div className="experience-line">
-                    <span className="mono">{job.dateText}</span>
-                    {index === 0 && (
-                    <span className="current-badge">
-                      <i />
-                      {' '}
-                      CURRENT
-                    </span>
-                    )}
-                  </div>
-                  <h3>{job.subtitle}</h3>
-                  <p className="job-title">{job.title}</p>
-                  <p className="job-summary">{job.workDescription[0]}</p>
-                  <button type="button" className="text-button" aria-expanded={expandedExperience === index} aria-controls={`job-${index}`} onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}>{expandedExperience === index ? 'Less detail −' : 'More about this role +'}</button>
-                  <div id={`job-${index}`} hidden={expandedExperience !== index}><ul>{job.workDescription.slice(1).map((description) => <li key={description}>{description}</li>)}</ul></div>
-                </article>
-              ))}
-            </div>
-          </div>
-          {loadState === 'loading' && <p role="status" className="data-notice">Loading experience…</p>}
-        </section>
-        <section id="skills" className="about-section">
-          <div className="section page-width">
-            <h2>Areas of focus</h2>
-            <div className="specialties">
-              {specialties.map(([number, title, description, tags]) => (
-                <article key={title}>
-                  <p className="eyebrow">
-                    {number}
-                    {' '}
-                    / FOCUS AREA
-                  </p>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                  <div className="tags">{tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-                </article>
-              ))}
             </div>
           </div>
         </section>

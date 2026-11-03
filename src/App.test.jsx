@@ -34,13 +34,13 @@ test('shows ML work and loads real publications and experience', async () => {
   expect(await screen.findByRole('heading', { name: research.research[0].title }))
     .toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Salesforce' })).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: 'View full screenshot of xLAMFlow' }))
-    .toHaveAttribute('href', '/images/projects/xlamflow.png');
+  expect(screen.queryByRole('link', { name: 'View full screenshot of xLAMFlow' }))
+    .not.toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Watch demo' }))
     .toHaveAttribute('href', 'https://lnkd.in/p/gH9DNkhr');
   expect(screen.queryByRole('link', { name: 'Read the xLAM paper' })).not.toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'View résumé' })).toHaveAttribute('href',
-    expect.stringContaining('drive.google.com'));
+    'https://drive.google.com/file/d/185GYTBLNkPMPpVfkZXluUWxi-tqPxyy9/view?usp=sharing');
 });
 
 test('filters project archive without losing the selected work', async () => {
@@ -74,9 +74,10 @@ test('expands publications and role details', async () => {
 test('supports theme persistence and keyboard dismissal of mobile navigation', async () => {
   render(<App />);
   await screen.findByRole('heading', { name: 'Salesforce' });
-  fireEvent.click(screen.getByRole('button', { name: 'Switch to dark mode' }));
   expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
-  expect(localStorage.getItem('portfolio-theme')).toBe('dark');
+  fireEvent.click(screen.getByRole('button', { name: 'Switch to light mode' }));
+  expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+  expect(localStorage.getItem('portfolio-theme')).toBe('light');
   fireEvent.click(screen.getByRole('button', { name: 'Open navigation' }));
   expect(screen.getByRole('button', { name: 'Close navigation' }))
     .toHaveAttribute('aria-expanded', 'true');
@@ -91,4 +92,28 @@ test('offers useful links when profile requests fail', async () => {
   expect(await screen.findByRole('alert')).toHaveTextContent('Some profile details couldn’t load');
   expect(screen.getByRole('heading', { name: 'xLAMFlow' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Email Tulika' })).toHaveAttribute('href', 'mailto:tawalgao@uci.edu');
+});
+
+test('company links reveal the complete role and experience precedes research', async () => {
+  render(<App />);
+  const role = (await screen.findByRole('heading', { name: 'Salesforce' })).closest('article');
+  const companyLinks = document.querySelector('.credentials-strip');
+  const link = within(companyLinks).getByRole('link', { name: /Salesforce/ });
+  expect(link).toHaveAttribute('href', `#${role.id}`);
+  fireEvent.click(link);
+  expect(within(role).getByRole('button', { name: 'Less detail −' }))
+    .toHaveAttribute('aria-expanded', 'true');
+  expect(within(role).getByText(experiences.experiences[0].workDescription[1])).toBeVisible();
+  expect([...document.querySelectorAll('main > section')].map((section) => section.id))
+    .toEqual(['home', 'work', 'experience', 'research', 'contact']);
+  const nav = screen.getByRole('navigation', { name: 'Main navigation' });
+  expect(within(nav).getAllByRole('link').slice(0, 4).map((item) => item.textContent))
+    .toEqual(['Work', 'About', 'Experience', 'Research']);
+});
+
+test('respects a previously saved light theme', async () => {
+  localStorage.setItem('portfolio-theme', 'light');
+  render(<App />);
+  await screen.findByRole('heading', { name: 'Salesforce' });
+  expect(document.documentElement).toHaveAttribute('data-theme', 'light');
 });
