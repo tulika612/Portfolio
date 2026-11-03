@@ -15,10 +15,10 @@ const specialties = [
 ];
 const supportingWork = [
   {
-    title: 'xLAMFlow', category: 'On-device AI', kind: 'Machine learning', description: 'An iOS productivity assistant powered by quantized xLAM-2. Bringing multi-step agentic workflows to the device, with privacy at the core.', tags: ['Action models', 'Swift', 'GGUF'], visual: 'flow', contribution: 'Built the Swift assistant and prepared models for edge deployment.', outcome: 'Single-step, multi-turn, and multi-step workflows with local inference.', label: 'Explore the xLAM research', href: 'https://aclanthology.org/2025.naacl-long.578.pdf',
+    title: 'xLAMFlow', category: 'On-device AI', kind: 'Machine learning', description: 'An iOS productivity assistant powered by quantized xLAM-2. Bringing multi-step agentic workflows to the device, with privacy at the core.', tags: ['Action models', 'Swift', 'GGUF'], screenshot: 'images/projects/xlamflow.png', screenshotAlt: 'xLAMFlow performing a Slack action with an on-device model', contribution: 'Built the Swift assistant and prepared models for edge deployment.', outcome: 'Single-step, multi-turn, and multi-step workflows with local inference.', label: 'Watch demo', href: 'https://lnkd.in/p/gH9DNkhr',
   },
   {
-    title: 'MobileAIBench', category: 'Evaluation & benchmarking', kind: 'Machine learning', description: 'A cross-platform framework for evaluating LLMs and multimodal models on real mobile hardware. Measuring what matters beyond the leaderboard.', tags: ['LLMs / LMMs', 'iOS & Android', 'Quantization'], visual: 'bench', contribution: 'Designed and open-sourced the iOS / Android benchmarking framework.', outcome: 'Evaluates LLMs and multimodal models across 4-, 8-, and 16-bit quantization.', label: 'Read the paper', href: 'https://arxiv.org/abs/2406.10290',
+    title: 'MobileAIBench', category: 'Evaluation & benchmarking', kind: 'Machine learning', description: 'A cross-platform framework for evaluating LLMs and multimodal models on real mobile hardware. Measuring what matters beyond the leaderboard.', tags: ['LLMs / LMMs', 'iOS & Android', 'Quantization'], screenshot: 'images/projects/mobileaibench.png', screenshotAlt: 'MobileAIBench model selection and on-device benchmark results', contribution: 'Designed and open-sourced the iOS / Android benchmarking framework.', outcome: 'Evaluates LLMs and multimodal models across 4-, 8-, and 16-bit quantization.', label: 'Read the paper', href: 'https://arxiv.org/abs/2406.10290',
   },
   {
     title: 'Source Code Stylometry', category: 'Applied machine learning', kind: 'Machine learning', description: 'Identifying code authors through their programming style. A full-stack research project combining neural networks with a Flask application.', tags: ['Python', 'Keras', 'Flask'], visual: 'code', contribution: 'Built an author-identification web application with a Flask REST API.', outcome: 'Research published at ICMLC 2021.', outcomeLabel: 'Outcome', label: 'Explore the project', href: 'https://github.com/tulika612/Code_Stylometry',
@@ -96,55 +96,6 @@ function Heading({
     </div>
   );
 }
-function Pipeline() {
-  return (
-    <div className="pipeline" aria-label="Illustration of a model pipeline from data through reasoning to action" role="img">
-      <div className="pipeline-top">
-        <span>
-          <i />
-          {' '}
-          FROM RESEARCH TO REAL WORLD
-        </span>
-        <span>FIG. 01</span>
-      </div>
-      <svg viewBox="0 0 460 315" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="lineGradient">
-            <stop stopColor="#b7cdc0" />
-            <stop offset="1" stopColor="#35745f" />
-          </linearGradient>
-        </defs>
-        {[64, 115, 166, 217, 268].map((y, i) => (
-          <g key={y}>
-            <path d={`M55 ${y} C135 ${y}, 137 157, 210 157`} stroke="url(#lineGradient)" strokeWidth="1" opacity={0.4 + i * 0.1} />
-            <circle cx="55" cy={y} r="5" fill="#d9e6dc" stroke="#7d9f8b" />
-          </g>
-        ))}
-        {[72, 157, 242].map((y) => (
-          <g key={y}>
-            <path d={`M252 157 C320 157, 325 ${y}, 396 ${y}`} stroke="url(#lineGradient)" />
-            <circle cx="396" cy={y} r="6" fill="#e5eee7" stroke="#63957a" />
-          </g>
-        ))}
-        <circle cx="231" cy="157" r="60" stroke="#90b39e" strokeDasharray="3 7" className="orbit" />
-        <circle cx="231" cy="157" r="43" fill="#f4f6ee" stroke="#437b60" />
-        <path d="M214 157h34m-17-17v34m-27-29 54 24m-54 0 54-24" stroke="#2a664d" strokeWidth="1.5" />
-        <circle cx="231" cy="157" r="8" fill="#29674d" />
-        <text x="55" y="304" textAnchor="middle">DATA</text>
-        <text x="231" y="304" textAnchor="middle">REASONING</text>
-        <text x="396" y="304" textAnchor="middle">ACTION</text>
-      </svg>
-      <div className="pipeline-bottom">
-        <span>
-          Thoughtful models.
-          <br />
-          <strong>Useful intelligence.</strong>
-        </span>
-        <span className="pipeline-mark" aria-hidden="true"><Spark /></span>
-      </div>
-    </div>
-  );
-}
 function ProjectVisual({ type }) {
   return (
     <div className={`project-visual visual-${type}`} aria-hidden="true">
@@ -183,32 +134,6 @@ function ProjectVisual({ type }) {
           </div>
           <span className="visual-footnote">PERSONAS / INTERACTIONS / EVALUATION</span>
         </>
-      )}
-      {type === 'flow' && (
-      <>
-        <span className="visual-caption">INTELLIGENCE, ON DEVICE.</span>
-        <div className="phone">
-          <div className="phone-notch" />
-          <span className="phone-symbol"><Spark /></span>
-          <span>How can I help?</span>
-          <div className="phone-task">
-            Plan my afternoon
-            <Arrow />
-          </div>
-          <div className="phone-task faint">
-            3 actions · on device
-            <span>✓</span>
-          </div>
-        </div>
-        <span className="visual-footnote">xLAM-2 / LOCAL INFERENCE</span>
-      </>
-      )}
-      {type === 'bench' && (
-      <>
-        <span className="visual-caption">SMALLER MODELS. BIG POSSIBILITIES.</span>
-        <div className="benchmark-bars">{[42, 72, 56, 92, 66, 82].map((height, i) => <div key={height} style={{ '--bar-height': `${height}%` }}><span>{['4', '8', '16', '4', '8', '16'][i]}</span></div>)}</div>
-        <span className="visual-footnote">ILLUSTRATIVE / QUANTIZATION IN BITS</span>
-      </>
       )}
       {type === 'code' && (
       <>
@@ -323,7 +248,7 @@ export default function MainApp() {
             <span className="wordmark-label">ENGINEER & RESEARCHER</span>
           </a>
           <nav id="primary-navigation" className={menuOpen ? 'navigation is-open' : 'navigation'} aria-label="Main navigation">
-            {navigation.map((item) => <a key={item} href={`#${item.toLowerCase()}`} aria-current={activeSection === item.toLowerCase() ? 'location' : undefined} onClick={() => setMenuOpen(false)}>{item}</a>)}
+            {navigation.map((item) => <a key={item} href={`#${item.toLowerCase()}`} aria-current={activeSection === item.toLowerCase() || (item === 'About' && activeSection === 'home') ? 'location' : undefined} onClick={() => setMenuOpen(false)}>{item}</a>)}
             <a className="nav-contact" href="#contact" onClick={() => setMenuOpen(false)}>
               Let’s talk
               <Arrow />
@@ -337,33 +262,50 @@ export default function MainApp() {
       </header>
       <main id="main">
         <section id="home" className="hero page-width">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              <span className="status-dot" />
-              {' '}
-              MACHINE LEARNING ENGINEER · SALESFORCE
-            </p>
-            <h1>
-              Making intelligence
-              <br />
-              <span>work in the</span>
-              <br />
-              <em>real world.</em>
-            </h1>
-            <p className="hero-description">I’m Tulika Awalgaonkar. I work on agentic model training and multi-agent simulation at Salesforce—from training data and post-training to evaluating how agents behave.</p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#work">
-                Explore my work
-                <span className="down-right" aria-hidden="true"><Arrow /></span>
-              </a>
-              <ExternalLink href={resume} className="text-link">View résumé</ExternalLink>
+          <div id="about" className="about-layout intro-layout">
+            <div className="portrait-wrap">
+              <img src={`${process.env.PUBLIC_URL || ''}/images/about/pro.png`} alt="Tulika Awalgaonkar" loading="eager" />
+              <span className="portrait-caption mono">TULIKA AWALGAONKAR</span>
             </div>
-            <div className="hero-meta">
-              <span>RESEARCH MINDSET.</span>
-              <span>ENGINEERING INSTINCT.</span>
+            <div className="about-copy">
+              <p className="eyebrow">
+                MACHINE LEARNING ENGINEER · SALESFORCE
+              </p>
+              <h1>Hi, I’m Tulika.</h1>
+              <p>
+                I’m a machine learning engineer at Salesforce, working on agentic model training,
+                multi-agent simulation, and language model systems.
+              </p>
+              <p>
+                Before Salesforce, I was a founding engineer at Lamini, building LLM fine-tuning
+                and inference infrastructure. My path has taken me through GPU
+                benchmarking at VMware, computer vision, and a master’s in Computer
+                Science at UC Irvine.
+              </p>
+              <div className="hero-actions">
+                <a className="button button-primary" href="#work">
+                  Explore my work
+                  <span className="down-right" aria-hidden="true"><Arrow /></span>
+                </a>
+                <ExternalLink href={resume} className="text-link">View résumé</ExternalLink>
+              </div>
+              <div className="education-list">
+                {data.education.map((education, index) => (
+                  <div key={education.cardTitle}>
+                    <span className="mono">{index === 0 ? 'M.S.' : 'UG'}</span>
+                    <div>
+                      <strong>{index === 0 ? 'University of California, Irvine' : education.cardSubtitle}</strong>
+                      <span>
+                        Computer Science ·
+                        {' '}
+                        {education.title}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <Pipeline />
           <div className="recent-highlights" aria-label="Recent work and engineering highlights">
             <p className="eyebrow">WORK IN FOCUS</p>
             <div className="highlights-grid">
@@ -392,21 +334,6 @@ export default function MainApp() {
                 <p>Enabled larger-model inference with multi-GPU support.</p>
               </a>
             </div>
-          </div>
-          <div className="hero-bottom">
-            <span>
-              MODEL TRAINING
-              <i />
-              {' '}
-              AGENTIC SYSTEMS
-              <i />
-              {' '}
-              CUSTOMER SIMULATION
-            </span>
-            <a href="#work">
-              SCROLL TO EXPLORE
-              <span aria-hidden="true">↓</span>
-            </a>
           </div>
         </section>
         <div className="credentials-strip">
@@ -457,7 +384,30 @@ export default function MainApp() {
           <div className="project-grid">
             {projects.map((project, index) => (
               <article className="work-card" key={project.title}>
-                {project.visual ? <ProjectVisual type={project.visual} /> : <div className="archive-visual"><img src={`${process.env.PUBLIC_URL || ''}/${project.image}`} alt="" loading="lazy" /></div>}
+                {project.screenshot ? (
+                  <a
+                    className="project-screenshot"
+                    href={`${process.env.PUBLIC_URL || ''}/${project.screenshot}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View full screenshot of ${project.title}`}
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL || ''}/${project.screenshot}`}
+                      alt={project.screenshotAlt}
+                      loading="lazy"
+                    />
+                    <span>
+                      View full screenshot
+                      <Arrow />
+                    </span>
+                  </a>
+                ) : project.visual && <ProjectVisual type={project.visual} />}
+                {!project.screenshot && !project.visual && (
+                  <div className="archive-visual">
+                    <img src={`${process.env.PUBLIC_URL || ''}/${project.image}`} alt="" loading="lazy" />
+                  </div>
+                )}
                 <div className="work-content">
                   <p className="eyebrow">
                     {project.category}
@@ -581,56 +531,10 @@ export default function MainApp() {
           </div>
           {loadState === 'loading' && <p role="status" className="data-notice">Loading experience…</p>}
         </section>
-        <section id="about" className="about-section">
+        <section id="skills" className="about-section">
           <div className="section page-width">
-            <div className="about-layout">
-              <div className="portrait-wrap">
-                <img src={`${process.env.PUBLIC_URL || ''}/images/about/pro.png`} alt="Tulika Awalgaonkar" loading="lazy" />
-                <span className="portrait-caption mono">THE HUMAN BEHIND THE MODELS.</span>
-              </div>
-              <div className="about-copy">
-                <p className="eyebrow">
-                  <span>04 /</span>
-                  {' '}
-                  A LITTLE ABOUT ME
-                </p>
-                <h2>
-                  Curiosity, with
-                  <br />
-                  <em>an engineering habit.</em>
-                </h2>
-                <p>
-                  I’m a machine learning engineer at Salesforce, working on agentic model training,
-                  multi-agent simulation, and language model systems.
-                </p>
-                <p>
-                  Before Salesforce, I was a founding engineer at Lamini, building LLM fine-
-                  tuning and inference infrastructure. My path has taken me through GPU
-                  benchmarking at VMware, computer vision, and a master’s in Computer
-                  Science at UC Irvine.
-                </p>
-                <p>
-                  I’m drawn to the full journey: asking the right question, running the
-                  experiment, and building the system that brings it to life.
-                </p>
-                <div className="education-list">
-                  {data.education.map((education, index) => (
-                    <div key={education.cardTitle}>
-                      <span className="mono">{index === 0 ? 'M.S.' : 'UG'}</span>
-                      <div>
-                        <strong>{index === 0 ? 'University of California, Irvine' : education.cardSubtitle}</strong>
-                        <span>
-                          Computer Science ·
-                          {' '}
-                          {education.title}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div id="skills" className="specialties">
+            <h2>Areas of focus</h2>
+            <div className="specialties">
               {specialties.map(([number, title, description, tags]) => (
                 <article key={title}>
                   <p className="eyebrow">

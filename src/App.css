@@ -355,3 +355,34 @@ h3 { font-size: 22px; letter-spacing: -.6px; line-height: 1.35; margin-bottom: 1
 .persona-nodes > span { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 9px; background: #f3f6f8; border: 1px solid #a8b6c2; font-size: 8px; }
 .persona-nodes svg { width: 25px; height: 25px; }
 @media (min-width: 601px) and (max-width: 800px) { .model-source { font-size: 7px; } }
+
+/* Personal introduction, moved from the former About section. */
+.intro-layout { grid-column: 1 / -1; grid-template-columns: .85fr 1.2fr; gap: 76px; }
+.intro-layout h1 { font-size: clamp(38px, 4vw, 56px); letter-spacing: -2px; line-height: 1.15; margin-bottom: 24px; }
+.intro-layout .portrait-wrap { transform: none; padding-bottom: 40px; }
+.intro-layout .portrait-wrap img { height: 440px; filter: none; }
+.intro-layout .about-copy > p:not(.eyebrow) { line-height: 1.8; }
+.intro-layout .hero-actions { margin-top: 25px; }
+#skills .specialties { margin-top: 30px; }
+.hero .recent-highlights { margin-bottom: 30px; }
+@media (max-width: 1100px) {
+  .intro-layout { gap: 45px; }
+  .intro-layout .portrait-wrap img { height: 420px; }
+}
+@media (max-width: 800px) {
+  .intro-layout { gap: 30px; }
+  .intro-layout .portrait-wrap img { height: 380px; }
+  .intro-layout .about-copy .eyebrow { font-size: 8px; }
+}
+@media (max-width: 600px) {
+  .intro-layout { grid-template-columns: 1fr; gap: 30px; }
+  .intro-layout .portrait-wrap { width: 100%; max-width: 345px; padding: 10px 10px 35px; }
+  .intro-layout .portrait-wrap img { height: 300px; }
+  .intro-layout .portrait-caption { left: 12px; bottom: 12px; }
+  .intro-layout .hero-actions { flex-wrap: wrap; }
+}
+
+.project-screenshot { height: 320px; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 18px 20px 12px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.project-screenshot img { display: block; flex: 1; min-height: 0; width: 100%; object-fit: contain; }
+.project-screenshot > span { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 11px; color: var(--accent); }
+.project-screenshot:hover > span { text-decoration: underline; text-underline-offset: 3px; }

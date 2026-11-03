@@ -25,13 +25,20 @@ afterEach(() => jest.restoreAllMocks());
 
 test('shows ML work and loads real publications and experience', async () => {
   render(<App />);
-  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Making intelligence/);
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Hi, I’m Tulika.');
+  expect(screen.getByAltText('Tulika Awalgaonkar')).toBeInTheDocument();
+  expect(screen.getByText('WORK IN FOCUS')).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'xLAMFlow' })).toBeInTheDocument();
   expect([...document.querySelectorAll('.work-card h3')].map((heading) => heading.textContent))
     .toEqual(['Salesforce Koa', 'Everse', 'xLAMFlow']);
   expect(await screen.findByRole('heading', { name: research.research[0].title }))
     .toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Salesforce' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'View full screenshot of xLAMFlow' }))
+    .toHaveAttribute('href', '/images/projects/xlamflow.png');
+  expect(screen.getByRole('link', { name: 'Watch demo' }))
+    .toHaveAttribute('href', 'https://lnkd.in/p/gH9DNkhr');
+  expect(screen.queryByRole('link', { name: 'Read the xLAM paper' })).not.toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'View résumé' })).toHaveAttribute('href',
     expect.stringContaining('drive.google.com'));
 });
@@ -44,6 +51,8 @@ test('filters project archive without losing the selected work', async () => {
   expect(screen.queryByRole('heading', { name: 'xLAMFlow' })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Machine learning' }));
   expect(screen.getByRole('heading', { name: 'OCR for sanskrit language' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'View full screenshot of MobileAIBench' }))
+    .toHaveAttribute('href', '/images/projects/mobileaibench.png');
   fireEvent.click(screen.getByRole('button', { name: 'Selected' }));
   expect(document.querySelectorAll('.work-card')).toHaveLength(3);
 });
